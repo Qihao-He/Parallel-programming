@@ -492,6 +492,8 @@ ________________________________________________________________________________
 Finish setup the github repository for the README.txt
 14:33PM
 Setting up the vimrc (vim configuration)for the easier use of vim.
+Trying to figure out how to split window in vim for efficiency.
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
