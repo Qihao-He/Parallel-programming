@@ -504,6 +504,10 @@ Finish setup the github repository for the README.txt
 Setting up the vimrc (vim configuration)for the easier use of vim.
 
 Trying to figure out how to split window in vim for efficiency.
+
+11:00PM
+Atom git-plus package using git for version control.
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
