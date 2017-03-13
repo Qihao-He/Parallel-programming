@@ -444,7 +444,7 @@ is probably unnecessary.  It depends on how the final output will be accessed.
 Using the terminal, split the screens.
 MACOS terminal cannot split screen.
 
-14:33PM
+14:33PMQ
 Running the hello_fft.bin using:
 more jobs = more transforms per batch, default=1
 
@@ -511,13 +511,7 @@ Using Atom git-plus package failed at cannot pull or push in the Atom.
 Switch back to use vim.
 22:16PM
 Find how to use the Atom git-plus package.
-aslkjfd;ljase;flkj
-
-
-;alks;flkj
-a;lksdf;lkj
-asef;ljkasl;f
-
+123
 
 ________________________________________________________________________________
 ________________________________________________________________________________
