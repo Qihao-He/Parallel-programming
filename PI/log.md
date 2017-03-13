@@ -22,7 +22,7 @@ ________________________________________________________________________________
 ESCI 386 – Scientific Programming, Analysis and Visualization with Python
 Lesson 17 - Fourier Transforms
 numpy:
-http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Transforms.pdf
+http://snowball.millersville.edu/~adecaria/ESCI386PQ/esci386-lesson17-Fourier-Transforms.pdf
 
 8:50pm
 GPGPU HACKING ON THE PI
@@ -509,6 +509,8 @@ ________________________________________________________________________________
 17:55PM
 Using Atom git-plus package failed at cannot pull or push in the Atom.
 Switch back to use vim.
+Find how to use the Atom git-plus package.
+
 
 ________________________________________________________________________________
 ________________________________________________________________________________
