@@ -506,6 +506,7 @@ Atom git-plus package using git for version control.
 
 ________________________________________________________________________________
 3/12/2017
+17:55PM
 Using Atom git-plus package failed at cannot pull or push in the Atom.
 Switch back to use vim.
 
