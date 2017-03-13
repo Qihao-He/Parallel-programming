@@ -511,7 +511,7 @@ Using Atom git-plus package failed at cannot pull okr push in the Atom.
 Switch back to use vim.
 22:16PM
 Find how to use the Atom git-plus package.
-123
+
 
 ________________________________________________________________________________
 ________________________________________________________________________________
