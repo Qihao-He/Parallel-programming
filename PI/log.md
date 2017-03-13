@@ -533,7 +533,9 @@ fft(s) forward DFT and returns the coefficient F,
 ifft(F) the inverse DFT and returns the signal s,
 fftfreq(n,d) computes the natural frequencies/wavenumbers. d is an optional
 sample spacing.
+
 NATURAL FREQUENCY: The frequency at which a system tends to oscillate in the absence of any driving or damping force.
+Wavenumbers: In the physical sciences, the wavenumbers is the spatial frequency of a wave, either in cycles per unit distance or radians per unit distance.
 fftshift(F) shifts the zero frequency to the center of the array.
 ________________________________________________________________________________
 ________________________________________________________________________________
