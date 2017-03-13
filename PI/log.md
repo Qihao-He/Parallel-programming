@@ -485,8 +485,6 @@ MEM, inverse.
 
 QUESTION:
 What kind of transform is it doing?
-
-
 ________________________________________________________________________________
 
 3/11/2017
@@ -511,7 +509,8 @@ Using Atom git-plus package failed at cannot pull okr push in the Atom.
 Switch back to use vim.
 22:16PM
 Find how to use the Atom git-plus package.
-
+22:45PM
+Fully understand how to use the Atom git-plus package.
 
 ________________________________________________________________________________
 ________________________________________________________________________________
