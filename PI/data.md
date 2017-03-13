@@ -119,3 +119,29 @@ rel_rms_err = 1.5e-06, usecs = 781577, k = 0
 rel_rms_err = 1.5e-06, usecs = 778754, k = 1
 rel_rms_err = 1.5e-06, usecs = 778890, k = 2
 rel_rms_err = 1.5e-06, usecs = 778164, k = 3
+
+Running the hello_fft.bin using:
+more jobs = more transforms per batch, default=1
+
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 2
+rel_rms_err = 7.4e-07, usecs = 252, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 4
+rel_rms_err = 7.1e-07, usecs = 258, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 8
+rel_rms_err = 6.9e-07, usecs = 284, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 16
+rel_rms_err = 6.4e-07, usecs = 267, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 32
+rel_rms_err = 6.2e-07, usecs = 262, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 64
+rel_rms_err = 6.1e-07, usecs = 263, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 128
+rel_rms_err = 6e-07, usecs = 256, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 256
+rel_rms_err = 5.9e-07, usecs = 256, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 1024
+rel_rms_err = 5.9e-07, usecs = 255, k = 0
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 4096
+Out of memory.  Try a smaller batch or increase GPU memory.
+pi@raspberrypi:/opt/vc/src/hello_pi/hello_fft $ sudo ./hello_fft.bin 12 2048
+rel_rms_err = 0.016, usecs = 254, k = 0
