@@ -524,7 +524,10 @@ DFT
 The magnitude squared of the Fourier coefficients , |F(m)|2, is called the
 power. Power Spectrum- A plot of the power vs. frequency is referred to as the
 power spectrum.
+Power spectra for Square signal and for Gaussian Signal.
+Signal, Normalized Power.
 
+numpy.fft Module
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
