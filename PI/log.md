@@ -22,7 +22,7 @@ ________________________________________________________________________________
 ESCI 386 – Scientific Programming, Analysis and Visualization with Python
 Lesson 17 - Fourier Transforms
 numpy:
-http://snowball.millersville.edu/~adecaria/ESCI386PQ/esci386-lesson17-Fourier-Transforms.pdf
+http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Transforms.pdf
 
 8:50pm
 GPGPU HACKING ON THE PI
@@ -513,6 +513,13 @@ Find how to use the Atom git-plus package.
 Fully understand how to use the Atom git-plus package.
 
 ________________________________________________________________________________
+3/13/2017
+11:22AM
+NUMPY
+Reading the ESCI 386- Python Fourier Transforms
+http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Transforms.pdf
+
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
