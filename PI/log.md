@@ -518,7 +518,10 @@ ________________________________________________________________________________
 NUMPY
 Reading the ESCI 386- Python Fourier Transforms
 http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson17-Fourier-Transforms.pdf
+DFT
 
+14:09PM
+Power Spectrum
 
 ________________________________________________________________________________
 ________________________________________________________________________________
