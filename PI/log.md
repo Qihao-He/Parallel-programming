@@ -509,6 +509,7 @@ ________________________________________________________________________________
 17:55PM
 Using Atom git-plus package failed at cannot pull or push in the Atom.
 Switch back to use vim.
+22:16PM
 Find how to use the Atom git-plus package.
 
 
