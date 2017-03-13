@@ -528,6 +528,13 @@ Power spectra for Square signal and for Gaussian Signal.
 Signal, Normalized Power.
 
 numpy.fft Module
+Function:
+fft(s) forward DFT and returns the coefficient F,
+ifft(F) the inverse DFT and returns the signal s,
+fftfreq(n,d) computes the natural frequencies/wavenumbers. d is an optional
+sample spacing.
+NATURAL FREQUENCY: The frequency at which a system tends to oscillate in the absence of any driving or damping force.
+fftshift(F) shifts the zero frequency to the center of the array.
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
