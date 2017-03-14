@@ -538,8 +538,7 @@ NATURAL FREQUENCY: The frequency at which a system tends to oscillate in the abs
 Wavenumbers: In the physical sciences, the wavenumbers is the spatial frequency of a wave, either in cycles per unit distance or radians per unit distance.
 fftshift(F) shifts the zero frequency to the center o f the array.
 
-21:58PM
-
+23:09PM
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
