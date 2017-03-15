@@ -534,12 +534,18 @@ ifft(F) the inverse DFT and returns the signal s,
 fftfreq(n,d) computes the natural frequencies/wavenumbers. d is an optional
 sample spacing.
 
-NATURAL FREQUENCY: The frequency at which a system tends to oscillate in the absence of any driving or damping force.
-Wavenumbers: In the physical sciences, the wavenumbers is the spatial frequency of a wave, either in cycles per unit distance or radians per unit distance.
+NATURAL FREQUENCY: The frequency at which a system tends to oscillate in the
+absence of any driving or damping force.
+Wavenumbers: In the physical sciences, the wavenumbers is the spatial frequency
+of a wave, either in cycles per unit distance or radians per unit distance.
 fftshift(F) shifts the zero frequency to the center o f the array.
-
-23:09PM
 ________________________________________________________________________________
+3/14/2017
+21:54PM
+Comparing the parallel program hello_fft, that uses the transmitting the data
+back and forward for the processing in different threads. That parallel is
+surely faster than the single processing thread.
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
