@@ -547,8 +547,53 @@ back and forward for the processing in different threads. I infer that parallel
 is surely faster than the single processing thread.
 22:14PM
 Read the parallel programming book for inspiration.
-
 ________________________________________________________________________________
+3/15/2017
+11:30AM
+The numpy.fft.fft() Function
+The fft.fft() function accepts either a real or a complex array as an input
+argument, and returns a complex array of the same size that contains the Fourier coefficients.
+For the returned complex array:
+– The real part contains the coefficients for the cosine terms.
+– The imaginary part contains the negative of the coefficients for the sine
+terms.
+NOTE: This is exactly what forward Fourier transform is doing.
+
+14:31PM
+IMPORTANT NOTICE!!! There are different definitions for how a DFT should be
+taken.
+Fourier coefficients
+F(m) forward transform, is the spectral coefficient for the mth wave component.
+F(m) is always complex-valued.
+f(n) inverse transform, is value of function f at grid point n. f(n) maybe real
+or complex-valued.
+NumPy actually uses these equations.
+This means that NumPy’s Fourier coefficients will be N times larger than
+expected!
+QUESTION: Why are the equation deferent with the previous ones? And why is that
+1/N change in F(m) and f(n) shows that Fourier coefficients are N times larger
+than expected.
+
+fft.fftfreq() function
+The natural frequencies associated with the spectral coefficients are calculated
+using the fft.fft() function.
+The zeroth frequency is first, followed by the positive frequencies in ascending
+ order, and then the negative frequencies in descending order.
+
+Reading the program file: fft-example.py
+FFT result has RE, IM, |Fk|^2 three graphs.
+FFT leakage:
+1. There is no limits on the number of data points when taking FFTs in NumPy.
+2. The FFT algorithm is much more efficient if the number of data points is a
+ power of 2 (128, 512, 1024, etc.).
+3. The DFT assumes that the signal is periodic on the interval 0 to N, where N
+ is the total number of data points in the signal.
+4. Care needs to be taken to ensure that all waves in the signal are periodic
+ within the interval 0 to N, or a phenomenon known as leakage will occur.
+ 
+
+
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________

@@ -35,3 +35,7 @@ MEM, inverse.
 
 QUESTION:
 What kind of transform is it doing?
+
+QUESTION: Why are the equation deferent with the previous ones? And why is that
+1/N change in F(m) and f(n) shows that Fourier coefficients are N times larger
+than expected.
