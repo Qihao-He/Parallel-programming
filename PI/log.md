@@ -543,8 +543,10 @@ ________________________________________________________________________________
 3/14/2017
 21:54PM
 Comparing the parallel program hello_fft, that uses the transmitting the data
-back and forward for the processing in different threads. That parallel is
-surely faster than the single processing thread.
+back and forward for the processing in different threads. I infer that parallel
+is surely faster than the single processing thread.
+22:14PM
+Read the parallel programming book for inspiration.
 
 ________________________________________________________________________________
 ________________________________________________________________________________
