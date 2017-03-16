@@ -590,11 +590,22 @@ FFT leakage:
  is the total number of data points in the signal.
 4. Care needs to be taken to ensure that all waves in the signal are periodic
  within the interval 0 to N, or a phenomenon known as leakage will occur.
- 
-
-
-
 ________________________________________________________________________________
+3/16/2017
+fft.rfft() Function
+Since for real input the negative frequencies are redundant, there is an
+fft.rfft() function that only computes the positive coefficients for a real
+input.
+
+QUESTION: What is real input? Does the real input means the real part or the
+actual input? Why is the nagative frequencies are redundant?
+
+The negative frequencies: The concept of negative and positive frequency can be
+as simple as a wheel rotating one way or the other way: a signed value of
+frequency can indicate both the rate and direction of rotation.
+
+The helper routine fftfreq() only returns the frequencie for the  complex FFT.
+The even number is different when it is even or odd,
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
