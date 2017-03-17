@@ -592,6 +592,7 @@ FFT leakage:
  within the interval 0 to N, or a phenomenon known as leakage will occur.
 ________________________________________________________________________________
 3/16/2017
+15:30PM
 fft.rfft() Function
 Since for real input the negative frequencies are redundant, there is an
 fft.rfft() function that only computes the positive coefficients for a real
@@ -604,8 +605,29 @@ The negative frequencies: The concept of negative and positive frequency can be
 as simple as a wheel rotating one way or the other way: a signed value of
 frequency can indicate both the rate and direction of rotation.
 
-The helper routine fftfreq() only returns the frequencie for the  complex FFT.
-The even number is different when it is even or odd,
+The helper routine fftfreq() only returns the frequencies for the complex FFT.
+It is different for even and odd cases, the frequencies are different.
+21:30PM
+NOTE:
+Reading the FFT examples in (numpy.fft) that is using python. While comparing
+with the parallel programming using the hello-fft. There should be applied with
+the same precision level.
+
+22:00PM
+Need to know about NumPy more. And also need to dig into the NumPy and the .fft
+module.
+NumPy is an extension to the Python programming language, adding support for
+large, multi-dimensional arrays and matrices, along with a large library of
+high-level mathematical functions to operate on these arrays.--reference from
+wiki
+
+numpy.fft.fft
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
+
+Compute the one-dimensional discrete FOURIER Transform.
+This function computes the one-dimensional n-point discrete Fourier
+Transform(DFT) with the efficient Fast Fourier Transform(FFT) algorithm[CT].
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
