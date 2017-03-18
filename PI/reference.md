@@ -16,3 +16,6 @@ https://www.raspberrypi.org/blog/a-birthday-present-from-broadcom/
 
 Reading gpu_fft.txt
 https://github.com/raspberrypi/userland/blob/master/host_applications/linux/apps/hello_pi/hello_fft/gpu_fft.txt
+
+numpy.fft.fft
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
