@@ -14,7 +14,7 @@ https://www.raspberrypi.org/blog/gpgpu-hacking-on-the-pi/
 A BIRTHDAY PRESENT FROM BROADCOM
 https://www.raspberrypi.org/blog/a-birthday-present-from-broadcom/
 
-Reading gpu_fft.txt
+Reading gpu_fft.txtC
 https://github.com/raspberrypi/userland/blob/master/host_applications/linux/apps/hello_pi/hello_fft/gpu_fft.txt
 
 numpy.fft.fft
