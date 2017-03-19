@@ -629,8 +629,16 @@ This function computes the one-dimensional n-point discrete Fourier
 Transform(DFT) with the efficient Fast Fourier Transform(FFT) algorithm[CT].
 
 ________________________________________________________________________________
+3/17/2017
+Review the DFT and FFT algorithms. n^2 to nlogn.
+The parallel algorithm can shorten the FFT algorithm.
 ________________________________________________________________________________
+3/18/2017
 ________________________________________________________________________________
+3/19/2017
+Understand the Recursive_FFT(a,n) pseudocode that illustrate the recursively
+breaking the array of coefficients a[0 ... (n-1)] to half in recursive.
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
