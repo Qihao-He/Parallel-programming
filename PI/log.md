@@ -640,9 +640,11 @@ Understand the Recursive_FFT(a,n) pseudocode that illustrate the recursively
 breaking the array of coefficients a[0 ... (n-1)] to half in recursive.
 The time of the Recursive_FFT is T(n)=2*T(n/2)+O(n)=O(nlogn)
 Have a pretty good understanding of the Recursive_FFT data float.
-Comparing with the iterative algorithm.
-
+Understand the primitive dth root of unity.
+Comparing with the iterative algorithm. Iterative_FFT(a,n)
 ________________________________________________________________________________
+3/20/2017
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
