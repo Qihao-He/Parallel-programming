@@ -644,7 +644,8 @@ Understand the primitive dth root of unity.
 Comparing with the iterative algorithm. Iterative_FFT(a,n)
 ________________________________________________________________________________
 3/20/2017
-add a line.
+Set up git repository for local and Remote access on Haswell machine, both
+repository are synchronized with the Github for version control.
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
