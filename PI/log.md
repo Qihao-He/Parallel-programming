@@ -649,6 +649,15 @@ repository are synchronized with the Github for version control.
 Reading the Iterative_FFT(a,n)
 ________________________________________________________________________________
 3/21/2017
+Reference from the book Parallel Program DESIGN
+Understand the butterfly patterns of the data.
+The iterative algorithm can be derive directly from Figure 15.4. After an
+initial permutation step, the algorithm will iterate logn times. Each iteration
+corresponds to a horizontal layer in Figure 15.4c. Within an iteration the
+algorithm updates values for  each of the n indices. The time complexity is the
+same as the recursive algorithm O(nlogn). The use of temporary variable t cuts
+the number of complex number multiplications nearly in half.
+
 
 ________________________________________________________________________________
 ________________________________________________________________________________
