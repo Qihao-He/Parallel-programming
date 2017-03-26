@@ -657,8 +657,63 @@ corresponds to a horizontal layer in Figure 15.4c. Within an iteration the
 algorithm updates values for  each of the n indices. The time complexity is the
 same as the recursive algorithm O(nlogn). The use of temporary variable t cuts
 the number of complex number multiplications nearly in half.
-
-
 ________________________________________________________________________________
+3/25/2017
+read the hello_fft
+I wonder if I am using the program correctly. Check the usage.
+/* if this is true: $hello_fft.bin log2_N [jobs[loops]] */
+$hello_fft.bin 8 [4[2]]
+/* if this would be right $hello_fft.bin log2_N jobs loops */
+$hello_fft.bin 8 4 2
+
+Find that lost connection of raspberrypi. Can not compile and run code
+temporarily.
+
+BS NOTE:
+Should allow more time for the experiment to run for measuring the energy. The
+time increases from 1 second to the log2_N=22 last about 60 seconds, so the main
+focus should be on one or a few calculation that would show visible difference.
+Also as the calculation increases size, the memory is used up for the matrix
+size increases in exponential way.
+
+Dig in the program.
+Dig in the header file gpu_fft.h
+mailbox.c mailbox.h
+
+Have question where does the API function it is calling from: gpu_fft_prepare()
+Also find that the results listing in the blog reference from:
+https://www.raspberrypi.org/blog/accelerating-fourier-transforms-using-the-gpu/
+is giving the Speedup.
+
+Along with the results showing in the reference:
+
+   Points	   batch=1	   batch=10	   batch=50	   FFTW	   Speedup
+   256	112	22	16	92	5.8x
+   512	125	37	26	217	8.3x
+   1024	136	54	45	482	10.7x
+   2048	180	107	93	952	10.2x
+   4096	298	256	240	3002	12.5x
+   8192	689	624	608	5082	8.4x
+   16384	1274	1167	1131	12005	10.6x
+   32768	3397	3225	3196	31211	9.8x
+   65536	6978	6703	6674	82769	12.4x
+   131072	16734	16110	16171	183731	11.4x
+
+QUESTION: What does the column difference in batch=1,10,50 means. With the FFTW
+ Fastest Fourier Transform in the West (FFTW). From the results shows:
+ the Speedup increases to 12.5x peak at 4096 points.
+
+Also read in the results of the gpu_fft.txt:
+
+ log2(N) |   8   |   9   |  10   |  11   |  12  |  13  |  14  |  15
+      1 | 0.033 | 0.049 | 0.070 | 0.12  | 0.25 | 0.61 |  1.2 |  3.5
+     10 | 0.017 | 0.029 | 0.049 | 0.11  | 0.27 | 0.66 |  1.2 |  3.3
+   FFTW | 0.092 | 0.22  | 0.48  | 0.95  | 3.0  | 5.1  | 12   | 31
+
+log2(N) |  16  |  17 |  18 |  19 |   20 |   21 |   22        All times in
+      1 |  7.0 |  17 |  43 |  97 |  194 |  388 |  786        milliseconds
+   FFTW | 83   | 180 | 560 | 670 | 1600 | 3400 | 8800        2 sig. figs
+
+
 ________________________________________________________________________________
 ________________________________________________________________________________
