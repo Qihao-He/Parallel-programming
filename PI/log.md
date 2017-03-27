@@ -713,7 +713,14 @@ Also read in the results of the gpu_fft.txt:
 log2(N) |  16  |  17 |  18 |  19 |   20 |   21 |   22        All times in
       1 |  7.0 |  17 |  43 |  97 |  194 |  388 |  786        milliseconds
    FFTW | 83   | 180 | 560 | 670 | 1600 | 3400 | 8800        2 sig. figs
-
-
 ________________________________________________________________________________
+3/26/2017
+In the gpu_fft.txt, the accuracy part is describing the RMS root mean square in
+PPM parts-per-million, which is pretty accurate.
+In the throughput section:
+All times in milliseconds 2 significant figures:
+That shows the time cost of running the program comparing with the FFTW, which
+is significantly shorter than the FFTW.
+QUESTION: Why is the Batch size only differ in 1 and 10 form? Why is any number
+that is between these two number is not measured?
 ________________________________________________________________________________

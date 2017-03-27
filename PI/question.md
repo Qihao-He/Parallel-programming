@@ -39,3 +39,7 @@ What kind of transform is it doing?
 QUESTION: Why are the equation deferent with the previous ones? And why is that
 1/N change in F(m) and f(n) shows that Fourier coefficients are N times larger
 than expected.
+
+In the gpu_fft.txt throughput section
+QUESTION: Why is the Batch size only differ in 1 and 10 form? Why is any number
+that is between these two number is not measured?
