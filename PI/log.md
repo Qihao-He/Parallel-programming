@@ -175,7 +175,6 @@ Compare with the performance of the CPU ARM processor.
 
 9:13pm
 Read about FFT and DFT wiki for refreshing FFT workload.
-
 ________________________________________________________________________________
 3/6/2017
 9:54AM
@@ -219,9 +218,8 @@ components.
 Mention about the primitive square root of 1 is -1.
 10:20PM
 Reading the DFT
-
 ________________________________________________________________________________
-2/8/2016
+3/8/2016
 1:35PM
 Page360 FFT
 Algorithm with complexity O(n*log(n)) exits and it is amenable to
@@ -264,7 +262,6 @@ transformed values.
 the required *+-
 3.the processes perform the final log(p) iterations of the FFT by swapping y's
 and performing the requisite *+-.
-
 ________________________________________________________________________________
 3/9/2017
 13:20PM
@@ -376,7 +373,6 @@ buffers for caching and alignment reasons.
 
 ping-pong buffers
 GPU_FFT performs multiple passes between ping-pong buffers.
-
 ________________________________________________________________________________
 3/10/2017
 10:00AM
@@ -501,7 +497,6 @@ Trying to figure out how to split window in vim for efficiency.
 
 11:00PM
 Atom git-plus package using git for version control.
-
 ________________________________________________________________________________
 3/12/2017
 17:55PM
@@ -511,7 +506,6 @@ Switch back to use vim.
 Find how to use the Atom git-plus package.
 22:45PM
 Fully understand how to use the Atom git-plus package.
-
 ________________________________________________________________________________
 3/13/2017
 11:22AM
@@ -627,13 +621,10 @@ https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 Compute the one-dimensional discrete FOURIER Transform.
 This function computes the one-dimensional n-point discrete Fourier
 Transform(DFT) with the efficient Fast Fourier Transform(FFT) algorithm[CT].
-
 ________________________________________________________________________________
 3/17/2017
 Review the DFT and FFT algorithms. n^2 to nlogn.
 The parallel algorithm can shorten the FFT algorithm.
-________________________________________________________________________________
-3/18/2017
 ________________________________________________________________________________
 3/19/2017
 Understand the Recursive_FFT(a,n) pseudocode that illustrate the recursively
@@ -723,4 +714,15 @@ That shows the time cost of running the program comparing with the FFTW, which
 is significantly shorter than the FFTW.
 QUESTION: Why is the Batch size only differ in 1 and 10 form? Why is any number
 that is between these two number is not measured?
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
 ________________________________________________________________________________
