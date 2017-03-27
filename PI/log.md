@@ -656,6 +656,7 @@ I wonder if I am using the program correctly. Check the usage.
 $hello_fft.bin 8 [4[2]]
 /* if this would be right $hello_fft.bin log2_N jobs loops */
 $hello_fft.bin 8 4 2
+This is the correct input method, see 3/27/2017 notes.
 
 Find that lost connection of raspberrypi. Can not compile and run code
 temporarily.
@@ -715,6 +716,37 @@ is significantly shorter than the FFTW.
 QUESTION: Why is the Batch size only differ in 1 and 10 form? Why is any number
 that is between these two number is not measured?
 ________________________________________________________________________________
+3/27/2016
+In the gpu_fft.txt, it mentioned that:It accepts three optional command-line
+arguments: <log2_N> <batch> <loops>. So the input method would be
+$hello_fft.bin 8 4 2
+
+Command measuing the performance of the FFT job size, batch, loop.
+$ cd /opt/vc/src/hello_pi/hello_fft
+$ sudo perf_3.16 stat -d ./hello_fft.bin 21 4
+rel_rms_err = 1.5e-06, usecs = 384048, k = 0
+
+ Performance counter stats for './hello_fft.bin 21 4':
+
+      16611.682000      task-clock (msec)         #    0.884 CPUs utilized
+               331      context-switches          #    0.020 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+            16,477      page-faults               #    0.992 K/sec
+    11,577,399,763      cycles                    #    0.697 GHz                     [37.56%]
+     1,285,911,727      stalled-cycles-frontend   #   11.11% frontend cycles idle    [37.54%]
+        11,624,766      stalled-cycles-backend    #    0.10% backend  cycles idle    [37.36%]
+     3,590,951,918      instructions              #    0.31  insns per cycle
+                                                  #    0.36  stalled cycles per insn [24.99%]
+       491,596,173      branches                  #   29.593 M/sec                   [25.14%]
+        12,319,210      branch-misses             #    2.51% of all branches         [25.08%]
+        27,138,104      L1-dcache-loads           #    1.634 M/sec                   [25.06%]
+           697,059      L1-dcache-load-misses     #    2.57% of all L1-dcache hits   [25.08%]
+   <not supported>      LLC-loads
+   <not supported>      LLC-load-misses
+
+      18.790153624 seconds time elapsed
+
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
