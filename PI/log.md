@@ -845,13 +845,86 @@ Performance counter stats for './hello_fft.bin 20 10 2':
 
      51.033239728 seconds time elapsed
 
+ $ sudo perf_3.16 stat -d ./hello_fft.bin  8 10 2
+ rel_rms_err = 2.7e-07, usecs = 20, k = 0
+ rel_rms_err = 2.7e-07, usecs = 18, k = 1
+
+  Performance counter stats for './hello_fft.bin 8 10 2':
+
+          35.376000      task-clock (msec)         #    0.814 CPUs utilized
+                 11      context-switches          #    0.311 K/sec
+                  0      cpu-migrations            #    0.000 K/sec
+                 97      page-faults               #    0.003 M/sec
+          1,315,035      cycles                    #    0.037 GHz
+          4,507,197      stalled-cycles-frontend   #  342.74% frontend cycles idle
+            441,497      stalled-cycles-backend    #   33.57% backend  cycles idle
+          4,967,122      instructions              #    3.78  insns per cycle
+                                                   #    0.91  stalled cycles per insn [59.55%]
+            942,058      branches                  #   26.630 M/sec                   [39.51%]
+             40,161      branch-misses             #    4.26% of all branches         [16.84%]
+      <not counted>      L1-dcache-loads
+      <not counted>      L1-dcache-load-misses
+    <not supported>      LLC-loads
+    <not supported>      LLC-load-misses
+
+        0.043437430 seconds time elapsed
+
+ $ sudo perf_3.16 stat -d ./hello_fft.bin  8 1 2
+ rel_rms_err = 3.3e-07, usecs = 53, k = 0
+ rel_rms_err = 3.3e-07, usecs = 34, k = 1
+
+  Performance counter stats for './hello_fft.bin 8 1 2':
+
+          25.234000      task-clock (msec)         #    0.741 CPUs utilized
+                 17      context-switches          #    0.674 K/sec
+                  0      cpu-migrations            #    0.000 K/sec
+                 91      page-faults               #    0.004 M/sec
+          3,416,788      cycles                    #    0.135 GHz
+          5,496,335      stalled-cycles-frontend   #  160.86% frontend cycles idle
+            459,694      stalled-cycles-backend    #   13.45% backend  cycles idle
+          4,608,842      instructions              #    1.35  insns per cycle
+                                                   #    1.19  stalled cycles per insn [42.36%]
+            787,847      branches                  #   31.222 M/sec                   [18.20%]
+      <not counted>      branch-misses
+      <not counted>      L1-dcache-loads
+      <not counted>      L1-dcache-load-misses
+    <not supported>      LLC-loads
+    <not supported>      LLC-load-misses
+
+        0.034069553 seconds time elapsed
+
+$ sudo perf_3.16 stat -d ./hello_fft.bin  8 50 2
+rel_rms_err = 2.5e-07, usecs = 18, k = 0
+rel_rms_err = 2.5e-07, usecs = 18, k = 1
+
+ Performance counter stats for './hello_fft.bin 8 50 2':
+
+         85.593000      task-clock (msec)         #    0.905 CPUs utilized
+                13      context-switches          #    0.152 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+               141      page-faults               #    0.002 M/sec
+        59,446,895      cycles                    #    0.695 GHz                     [33.73%]
+        18,211,275      stalled-cycles-frontend   #   30.63% frontend cycles idle    [44.18%]
+           447,559      stalled-cycles-backend    #    0.75% backend  cycles idle
+         9,224,249      instructions              #    0.16  insns per cycle
+                                                  #    1.97  stalled cycles per insn [43.85%]
+         1,173,759      branches                  #   13.713 M/sec                   [33.63%]
+            72,115      branch-misses             #    6.14% of all branches         [28.20%]
+            82,373      L1-dcache-loads           #    0.962 M/sec                   [27.02%]
+            58,372      L1-dcache-load-misses     #   70.86% of all L1-dcache hits   [26.00%]
+   <not supported>      LLC-loads
+   <not supported>      LLC-load-misses
+
+       0.094569758 seconds time elapsed
 
 QUESTION: Why is the using more batch is taking more time?
 NOTE: "usecs", (microseconds), "rel_rms_err",(relative root mean square error) k
 should be the times at which the loop times.
 QUESTION: So the usecs time is less than 1 second, when I set the batch size
 differ in 1 and 10, how does the usecs actually shows? Is it showing the time
-that uses
+that uses for the program? then how about the perf measured time? What time is
+that?
+
 
 ________________________________________________________________________________
 ________________________________________________________________________________
