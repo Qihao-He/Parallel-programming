@@ -691,6 +691,11 @@ Along with the results showing in the reference:
    65536	6978	6703	6674	82769	12.4x
    131072	16734	16110	16171	183731	11.4x
 
+These are the time measure for the time-old and time-new that gives out the
+speedup. As the points of calculation increases, the speedup of changing the
+batch size from 1 to 10 to 50 is not making the typical per-transform runtimes
+in microseconds changes a lot.
+
 QUESTION: What does the column difference in batch=1,10,50 means. With the FFTW
  Fastest Fourier Transform in the West (FFTW). From the results shows:
  the Speedup increases to 12.5x peak at 4096 points.
@@ -746,6 +751,29 @@ rel_rms_err = 1.5e-06, usecs = 384048, k = 0
 
       18.790153624 seconds time elapsed
 
+$ cd ~/QH_directory/userland/host_applications/linux/apps/hello_pi/hello_fft
+$ sudo perf_3.16 stat -d ./hello_fft.bin  20 10
+rel_rms_err = 1.4e-06, usecs = 192471, k = 0
+
+ Performance counter stats for './hello_fft.bin 20 10':
+
+      20842.337000      task-clock (msec)         #    0.812 CPUs utilized
+               599      context-switches          #    0.029 K/sec
+                 0      cpu-migrations            #    0.000 K/sec
+            20,571      page-faults               #    0.987 K/sec
+    14,530,940,586      cycles                    #    0.697 GHz                     [37.67%]
+     1,611,996,079      stalled-cycles-frontend   #   11.09% frontend cycles idle    [37.42%]
+        14,560,086      stalled-cycles-backend    #    0.10% backend  cycles idle    [37.28%]
+     4,522,659,463      instructions              #    0.31  insns per cycle
+                                                  #    0.36  stalled cycles per insn [24.94%]
+       615,849,834      branches                  #   29.548 M/sec                   [25.04%]
+        14,833,907      branch-misses             #    2.41% of all branches         [25.11%]
+        32,706,289      L1-dcache-loads           #    1.569 M/sec                   [25.19%]
+         1,152,936      L1-dcache-load-misses     #    3.53% of all L1-dcache hits   [25.16%]
+   <not supported>      LLC-loads
+   <not supported>      LLC-load-misses
+
+      25.663854775 seconds time elapsed
 
 ________________________________________________________________________________
 ________________________________________________________________________________
