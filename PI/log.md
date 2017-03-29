@@ -924,9 +924,9 @@ QUESTION: So the usecs time is less than 1 second, when I set the batch size
 differ in 1 and 10, how does the usecs actually shows? Is it showing the time
 that uses for the program? then how about the perf measured time? What time is
 that?
-
-
 ________________________________________________________________________________
+3/29/2017
+
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
