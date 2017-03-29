@@ -918,14 +918,17 @@ rel_rms_err = 2.5e-07, usecs = 18, k = 1
        0.094569758 seconds time elapsed
 
 QUESTION: Why is the using more batch is taking more time?
+
 NOTE: "usecs", (microseconds), "rel_rms_err",(relative root mean square error) k
 should be the times at which the loop times.
+
 QUESTION: So the usecs time is less than 1 second, when I set the batch size
 differ in 1 and 10, how does the usecs actually shows? Is it showing the time
 that uses for the program? then how about the perf measured time? What time is
 that?
 ________________________________________________________________________________
 3/29/2017
+Using R for the statistical data presenting in graphical.
 
 ________________________________________________________________________________
 ________________________________________________________________________________
