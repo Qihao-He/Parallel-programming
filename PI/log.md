@@ -932,8 +932,8 @@ Using R for the statistical data presenting in graphical.
 Currently lack of the management of the data.
 Plot 2D scattered graphs using R. Still need to handle the data.
 ________________________________________________________________________________
-3/30/2017
-
+4/3/2017
+Added pi ssh key in github. Now all devices online.
 ________________________________________________________________________________
 ________________________________________________________________________________
 ________________________________________________________________________________
