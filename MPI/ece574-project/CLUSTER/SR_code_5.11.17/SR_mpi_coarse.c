@@ -62,6 +62,9 @@ int main(int argc, char *argv[]) {
 	MPI_Comm_size(MPI_COMM_WORLD,&numtasks);//number os tasks
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
+
+
+
 	convolve_start=MPI_Wtime();
 	/* Only on rank 0 */
 	if(rank==0){
@@ -74,7 +77,13 @@ int main(int argc, char *argv[]) {
 	sum=SR_f(rank,rank*n/2/numtasks+1,(rank+1)*n/2/numtasks);
 	convolve_end=MPI_Wtime();
 
+
+
+
 	MPI_Barrier(MPI_COMM_WORLD);
+
+
+
 
 	reduce_start=MPI_Wtime();
 	/* MPI_reduce */
@@ -90,6 +99,9 @@ int main(int argc, char *argv[]) {
 		total_sum/=(3.0*n);
 	}
 	reduce_end=MPI_Wtime();
+
+
+
 
 	/* print result on rank 0 */
 	if(rank==0){
@@ -109,6 +121,8 @@ int main(int argc, char *argv[]) {
 		printf("Reduce time: %lf\n",reduce_end-reduce_start);
 		printf("Total time = %lf\n",reduce_end-start_time);
 	}
+
+
 
 	/* MPI_Finalize at the end */
 	MPI_Finalize();

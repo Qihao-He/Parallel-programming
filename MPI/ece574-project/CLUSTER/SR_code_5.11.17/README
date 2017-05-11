@@ -2,6 +2,6 @@ Author: Qihao He
 data type: Double float
 --------------------------------------------------------------------------------
 usage:
-$sbatch -n X time_SR_mpi.sh
+$sbatch -n X time_SR_mpi_coarse.sh
 X replace with the desired number of cores to compute.
 --------------------------------------------------------------------------------
