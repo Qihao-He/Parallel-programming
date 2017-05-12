@@ -35,7 +35,6 @@ int main(int argc, char *argv[]) {
 	double Rerror;//Relative error
 	double error;
 	int result;
-	double temp1,temp2;
 	double start_time,convolve_start,convolve_end,reduce_start,reduce_end;
 	int numtasks,rank;//# of tasks, rank index
 
@@ -58,9 +57,7 @@ int main(int argc, char *argv[]) {
 	convolve_start=MPI_Wtime();
 	/* Only on rank 0 */
 	if(rank==0){
-		temp1=(double)0/(double)n;
-		temp2=(double)n/(double)n;
-		total_sum=4.0/(1+temp1*temp1)-4.0/(1+temp2*temp2);
+		total_sum=4.0/(1+(double)0*0/(double)n/n;)-4.0/(1+(double)n*n/(double)n/n);
 		printf("Rank%d,total_sum:%f\n",rank,total_sum);
 	}
 
