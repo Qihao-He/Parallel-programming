@@ -23,7 +23,7 @@ double SR_f(int rank,int start,int end){
 
 	for(i=start;i<=end;i++){
 		temp1= 4.0/(1.0+(double)(2*i-1)*(2*i-1)/(double)n*n);
-		temp2= 4.0/(1.0+(double)(2 * i)*(2 * i)/(double)n*n));
+		temp2= 4.0/(1.0+(double)(2 * i)*(2 * i)/(double)n*n);
 		area+= 4.0*temp1+2*temp2;
 	}
 	printf("Rank%d range from %d to %d,area:%f\n",rank,start,end,area);
