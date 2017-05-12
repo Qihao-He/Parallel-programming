@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
 		// printf("epsilon is: %f\n",(double)epsilon);
 		Rerror=abs(total_sum-(double)truepivalue)/(double)epsilon;
 		error=abs(total_sum-(double)truepivalue);
-		printf("Relative error in epsilon is: %f\n",Rerror);
+		printf("Relative error in epsilon is: %13.15f\n",Rerror);
 		printf("error is: %f\n",error);
 
 		printf("Load time: %lf\n",convolve_start-start_time);
