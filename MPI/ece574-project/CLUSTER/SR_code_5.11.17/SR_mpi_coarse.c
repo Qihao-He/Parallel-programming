@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 	convolve_start=MPI_Wtime();
 	/* Only on rank 0 */
 	if(rank==0){
-		total_sum=4.0/(1+(double)0*0/(double)n/n;)-4.0/(1+(double)n*n/(double)n/n);
+		total_sum=4.0/(1+(double)0*0/(double)n/n)-4.0/(1+(double)n*n/(double)n/n);
 		printf("Rank%d,total_sum:%f\n",rank,total_sum);
 	}
 
