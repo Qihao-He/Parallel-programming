@@ -17,14 +17,12 @@
 #define truepivalue 3.14159265358979323
 
 double SR_f(int rank,int start,int end){
-	double temp1,temp2;
 	double area=0;
 	int i;
 
 	for(i=start;i<=end;i++){
-		temp1= 4.0/(1.0+(double)(2*i-1)*(2*i-1)/(double)n/n);
-		temp2= 4.0/(1.0+(double)(2 * i)*(2 * i)/(double)n/n);
-		area+= 4.0*temp1+2*temp2;
+		area+= 4.0*4.0/(1.0+(double)(2*i-1)*(2*i-1)/(double)n/n)+
+		2*4.0/(1.0+(double)(2*i)*(2*i)/(double)n/n);
 	}
 	printf("Rank%d range from %d to %d,area:%f\n",rank,start,end,area);
 	return area;
