@@ -64,9 +64,6 @@ int main(int argc, char *argv[]) {
 	sum=SR_f(rank,rank*n/2/numtasks+1,(rank+1)*n/2/numtasks);
 	convolve_end=MPI_Wtime();
 
-
-
-
 	MPI_Barrier(MPI_COMM_WORLD);
 
 
