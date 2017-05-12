@@ -11,22 +11,19 @@
 
 #define n 1e9 //iteration times
 // #define epsilon 2.220446e-16//epsilon
-#define epsilon 1e-15//epsilon
+#define epsilon 1e-10//epsilon
 
 /* True value of Pi from Wolframalpha www.wolframalpha.com */
 #define truepivalue 3.14159265358979323
 
 double SR_f(int rank,int start,int end){
-	double x,y;
 	double temp1,temp2;
 	double area=0;
 	int i;
 
 	for(i=start;i<=end;i++){
-		x=(double)(2*i-1)/(double)n;
-		temp1= 4.0/(1.0+x*x);
-		y=(double)(2*i)/(double)n;
-		temp2= 4.0/(1.0+y*y);
+		temp1= 4.0/(1.0+(double)(2*i-1)*(2*i-1)/(double)n*n);
+		temp2= 4.0/(1.0+(double)(2 * i)*(2 * i)/(double)n*n));
 		area+= 4.0*temp1+2*temp2;
 	}
 	printf("Rank%d range from %d to %d,area:%f\n",rank,start,end,area);
@@ -41,8 +38,6 @@ int main(int argc, char *argv[]) {
 	double error;
 	int result;
 	double temp1,temp2;
-
-	/* measure time */
 	double start_time,convolve_start,convolve_end,reduce_start,reduce_end;
 	int numtasks,rank;//# of tasks, rank index
 
@@ -53,9 +48,6 @@ int main(int argc, char *argv[]) {
 		MPI_Abort(MPI_COMM_WORLD, result);
 	}
 
-	/* Calls MPI_wtime() to get the wallclock times for Load, Convolve, Combine,
-	and Store like we did with PAPI in the OpenMP code. You only need to record
-	and print these from rank 0. */
 	start_time=MPI_Wtime();
 
 	/* Get number of tasks and our process number (rank) */
