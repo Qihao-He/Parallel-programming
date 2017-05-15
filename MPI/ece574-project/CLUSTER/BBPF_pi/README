@@ -1,7 +1,7 @@
 Author: Qihao He
 --------------------------------------------------------------------------------
 usage:
-$sbatch -n X time_GLA_pi_coarse.sh
+$sbatch -n X time_SR_mpi.sh
 X replace with the desired number of cores to compute.
 --------------------------------------------------------------------------------
 

@@ -1,5 +1,6 @@
 /* By Qihao He <qi.he@maine.edu> */
-/* This program uses Simpson's Rule to compute PI */
+/* This program uses Bailey–Borwein–Plouffe formula to compute PI */
+
 
 #include <stdlib.h>
 #include <stdio.h>
