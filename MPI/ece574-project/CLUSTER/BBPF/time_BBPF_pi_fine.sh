@@ -3,6 +3,6 @@
 #SBATCH -p general	# partition (queue)
 #SBATCH -t 0-2:00	# time (D-HH:MM)
 #SBATCH -o slurm.coarse.%N.%j.out # STDOUT
-#SBATCH -e slurm.coarse.%N.%j.err # STDERR
+# SBATCH -e slurm.coarse.%N.%j.err # STDERR
 
-time mpirun ./GLA_pi_fine
+time mpirun ./BBPF_fine

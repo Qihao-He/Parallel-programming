@@ -5,4 +5,4 @@
 #SBATCH -o slurm.coarse.%N.%j.out # STDOUT
 #SBATCH -e slurm.coarse.%N.%j.err # STDERR
 
-time mpirun ./BBPF_pi_coarse
+time mpirun ./GLA_coarse
