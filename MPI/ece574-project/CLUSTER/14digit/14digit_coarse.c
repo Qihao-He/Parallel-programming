@@ -1,6 +1,7 @@
 /* Auther: Qihao He <qi.he@maine.edu> */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <mpi.h>
 
