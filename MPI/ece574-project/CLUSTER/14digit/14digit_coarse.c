@@ -1,6 +1,9 @@
 /* Auther: Qihao He <qi.he@maine.edu> */
 
 #include <stdio.h>
+#include <math.h>
+#include <mpi.h>
+
 int main(){
   double p=3;
   int i;
