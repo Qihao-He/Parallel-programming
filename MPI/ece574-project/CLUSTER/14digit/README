@@ -1,11 +1,9 @@
 Author: Qihao He
 --------------------------------------------------------------------------------
 usage:
-$sbatch -n X time_SR_mpi.sh
+$sbatch -n X time_14digit_coarse.sh
 X replace with the desired number of cores to compute.
 --------------------------------------------------------------------------------
-
-
 
 
 
@@ -16,6 +14,13 @@ VW 32-node Haswell machine
 performance measure:
 --------------------------------------------------------------------------------
 Serial code on Haswell machine:
+
+$ ./time_14digit_coarse.sh
+pi=3.14159265358979
+
+real    0m0.032s
+user    0m0.000s
+sys     0m0.000s
 
 
 --------------------------------------------------------------------------------
