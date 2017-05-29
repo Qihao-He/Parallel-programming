@@ -4,7 +4,7 @@
 int main(){
   double p = 3;
   int i;
-  for (i = 2 ; i <= 100000 ; i+=4){
+  for (i = 2; i <= 100000; i+=4){
     p += 4 / (double(i)*(i+1)*(i+2));
     p -= 4 / (double(i+2)*(i+3)*(i+4));
   }
