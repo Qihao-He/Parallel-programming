@@ -2,7 +2,8 @@ CC = mpicc
 CFLAGS = -O2 -Wall -g
 LFLAGS = -ljpeg -lm
 
-all:   14digit_coarse 14digit_fine
+all:   14digit_coarse 
+	# 14digit_fine
 
 14digit_coarse:	14digit_coarse.o
 		$(CC) -o 14digit_coarse 14digit_coarse.o $(LFLAGS)
