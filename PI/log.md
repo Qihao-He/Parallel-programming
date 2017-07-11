@@ -32,12 +32,9 @@ https://www.raspberrypi.org/blog/gpgpu-hacking-on-the-pi/
 A BIRTHDAY PRESENT FROM BROADCOM
 https://www.raspberrypi.org/blog/a-birthday-present-from-broadcom/
 
-9:23pm
-Need to install Ubuntu on Surface for dual boot.
 ________________________________________________________________________________
 3/5/1017
-2:50pm
-Install Ubuntu on Surface failed at shrinking size of the disk.
+
 Rerun:
 cd /opt/vc/src/hello_pi/hello_fft
 make
@@ -177,28 +174,14 @@ Compare with the performance of the CPU ARM processor.
 Read about FFT and DFT wiki for refreshing FFT workload.
 ________________________________________________________________________________
 3/6/2017
-9:54AM
-Reading FFT tutorials YOUTUBE VIDEOS
-
-11:03AM
-FFT Wikipedia
-
-11:45AM
-Fully understand how FFT is fast in N*log(N).
 
 2:41PM
 Reading M*N matrix multiplication.
 
 3:46PM
 Reading Cooley-Tukey FFT algorithm.
-
-10:43PM
-Reading Cooley-Tukey FFT algorithm.
 ________________________________________________________________________________
 3/7/2017
-10:57AM
-Reading Cooley-Tukey FFT algorithm
-
 2:34PM
 Reading the Hello-FFT readme context.
 
@@ -216,8 +199,6 @@ the number of sample points) to determine the coefficients of various sinusoidal
 components.
 5:17PM
 Mention about the primitive square root of 1 is -1.
-10:20PM
-Reading the DFT
 ________________________________________________________________________________
 3/8/2016
 1:35PM
