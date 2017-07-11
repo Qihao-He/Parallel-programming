@@ -319,7 +319,7 @@ transforms.
 
 QUESTION: If the RAM run out easily at the 2^22, I think the PI has 512MB of RAM?
 FACT: PI2 B has 1GB RAM. PI 3 Like the Pi 2, it also has: 1GB RAM. PI 1 B+ has 512 MB.
-Answer: So running the job of 2^22 is taking 2^8(256B) to 2^22(4KB)?
+So running the job of 2^22 is taking 2^8(256B) to 2^22(4KB)?
 
 ACCURACY
 GPU_FFT uses single-precision floats for data and twiddle factors.
