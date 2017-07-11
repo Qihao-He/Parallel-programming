@@ -317,8 +317,8 @@ are provided for all power-of-2 FFT lengths between 2^8(256B) to 2^22(4KB). A
 transpose function, which also uses the 3D hardware, is provided to support 2D
 transforms.
 
-QUESTION: If the RAM run out easily at the 2^22, I think the PI has 4G of RAM?
-FACT: PI2 B has 1GB RAM. PI 3Like the Pi 2, it also has: 1GB RAM.
+QUESTION: If the RAM run out easily at the 2^22, I think the PI has 512MB of RAM?
+FACT: PI2 B has 1GB RAM. PI 3 Like the Pi 2, it also has: 1GB RAM. PI 1 B+ has 512 MB.
 Answer: So running the job of 2^22 is taking 2^8(256B) to 2^22(4KB)?
 
 ACCURACY
