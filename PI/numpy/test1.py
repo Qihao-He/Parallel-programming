@@ -7,6 +7,7 @@ Created on Thu Jul 13 14:45:09 2017
 """
 # Time library for performance measure
 import time
+# Time counter 
 start = time.time()
 
 # Do something
