@@ -13,8 +13,8 @@ start = time.time()
 a=1+2+3+4+5+6+7+8+9
 b=([0,1,2,3,4,5,6,7,8,9])
 print("hello")
-print "\na sum of 1 to 9 is: ", a
-print "\nb list of array is: ", b
+print "a sum of 1 to 9 is: ", a
+print "b list of array is: ", b
 
 end = time.time()
 # Print out time.
