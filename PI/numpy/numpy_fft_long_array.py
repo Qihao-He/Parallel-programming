@@ -6,7 +6,7 @@ Author:Qihao He
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.fftpack import fft,ifft
+# from scipy.fftpack import fft,ifft
 import time # Time library for performance measure
 
 start = time.time() # Time counter
