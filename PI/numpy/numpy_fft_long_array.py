@@ -1,35 +1,25 @@
+#!/usr/bin/python
 """
 Created: 12/27/2017
 Numpy doing FFT
 Author:Qihao He
 """
-#!/usr/bin/python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fftpack import fft,ifft
-# Time library for performance measure
-import time
-# Time counter
-start = time.time()
+import time # Time library for performance measure
 
+start = time.time() # Time counter
+pause1 = time.time()
+size = raw_input('Please input a job size:')
+pause2 = time.time()
 
-N = 64 # Number of points
-T = 1 / 64.0 # Spaceing between points
-# if T is time/distance, 1/T is frequency/wavenumber
-
-x = np.linspace(0, 2 * np.pi * N * T, N)
-y1 = np.cos(20 * x)
-y2 = np.sin(10 * x)
-y3 = np.sin(5 * x)
-
-y = y1 + y2 + y3 # Produces a random signal
-
-fy = fft(y) # Finds the FFT
-xf = np.linspace(0.0, 1.0 / (2.0 * T), N / 2)
+a = np.linspace(1., 100., size)
+b = np.fft.fft(a)
+# c = np.fft.ifft(b)
+# print "The original array a is:", a
+# print "The FFT of the original array a is b:", b
+# print "The IFFT of the b is c:", c
 
 end = time.time()
-# Print out time.
-print"Time elapsed:",(end - start)
-
-#plt.plot(xf,(2.0/N)*np.abs(fy[0:N/2]))
-# Only half is valid. The other half is replica!
+print"Time elapsed:",(end - start - pause2 + pause1) # Print out time
