@@ -21,15 +21,15 @@ pause2 = time.time()
 
 # creat a long double precision array and print datatype
 a = np.linspace(1., 4., jobsize)
-# print "double float array 'a' datatype:", a.dtype
+print "double float array 'a' datatype:", a.dtype
 
 # change it to a long single precision array and print datatype
 b = np.float32(a)
-# print "single float array 'b' datatype:", b.dtype
+print "single float array 'b' datatype:", b.dtype
 
 # do a scipy.fftpack.fft()
 c = sp.fftpack.fft(b)
-# print "output of FFT single float complex array 'c' datatype:", c.dtype
+print "output of FFT single float complex array 'c' datatype:", c.dtype
 
 end = time.time()
 print"Time elapsed:",(end - start - pause2 + pause1) # Print out time.
