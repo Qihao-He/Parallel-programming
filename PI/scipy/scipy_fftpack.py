@@ -4,8 +4,11 @@ import numpy as np
 import scipy as sp
 from scipy.fftpack import fft, ifft
 
+# jobsize x
+x = 256
+print "jobsize of the array:", x
 # creat a long double precision array and print datatype
-a = np.linspace(1., 4., 256)
+a = np.linspace(1., 4., x)
 print "double float array 'a' datatype:", a.dtype
 
 # change it to a long single precision array and print datatype
