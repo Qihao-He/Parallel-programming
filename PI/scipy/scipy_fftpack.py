@@ -11,18 +11,12 @@ import scipy as sp
 from scipy.fftpack import fft, ifft
 import time
 
+start = time.time()# Time counter
 print "This is the name of the script: ", sys.argv[0]
+print "The jobsize for the FFT is: ", sys.argv[1]
 print "Number of arguments: ", len(sys.argv)
 print "The arguments are: " , str(sys.argv)
-
-start = time.time()# Time counter
-
-pause1 = time.time()
-jobsize = raw_input('Please input a job size:')
-pause2 = time.time()
-
-# jobsize = 256
-# print "jobsize of the array:", jobsize
+jobsize = sys.argv[1]
 
 # creat a long double precision array and print datatype
 a = np.linspace(1., 4., jobsize)
