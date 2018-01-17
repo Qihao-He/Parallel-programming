@@ -5,10 +5,13 @@ scipy doing FFT
 Author:Qihao He
 """
 # import libraries
+import sys
 import numpy as np
 import scipy as sp
 from scipy.fftpack import fft, ifft
 import time
+
+print "This is the name of the script: ", sys.argv[0]
 
 start = time.time()# Time counter
 
