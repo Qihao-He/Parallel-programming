@@ -35,4 +35,4 @@ c = sp.fftpack.fft(b)
 print "output of FFT single float complex array 'c' datatype:", c.dtype
 
 end = time.time()
-print"Time elapsed:",(end - start - pause2 + pause1) # Print out time.
+print"Time elapsed (Without user input):",(end - start - pause2 + pause1) # Print out time.
