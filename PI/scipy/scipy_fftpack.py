@@ -13,7 +13,7 @@ import time
 
 start = time.time()# Time counter
 # print "This is the name of the script: ", sys.argv[0]
-print "The jobsize for the FFT is: ", sys.argv[1]
+print "The jobsize for the scipy-FFT is: ", sys.argv[1]
 # print "Number of arguments: ", len(sys.argv)
 # print "The arguments are: " , str(sys.argv)
 jobsize = sys.argv[1]
