@@ -13,10 +13,11 @@ import time
 
 start = time.time()# Time counter
 # print "This is the name of the script: ", sys.argv[0]
-print "The jobsize for the scipy-FFT is: ", sys.argv[1]
+print "The jobsize for the scipy-FFT is 2^: ", sys.argv[1]
 # print "Number of arguments: ", len(sys.argv)
 # print "The arguments are: " , str(sys.argv)
-jobsize = sys.argv[1] # Number of points
+# print "The arguments are: " , str(sys.argv)
+jobsize = np.power(2,sys.argv[1]) # Number of points
 
 # T = 1.0 / float(jobsize) # Spaceing between points
 # if T is time/distance, 1/T is frequency/wavenumber
