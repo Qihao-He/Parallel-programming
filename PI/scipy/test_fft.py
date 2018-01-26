@@ -21,6 +21,7 @@ try:
 except ValueError:
     print "You must supply an integer"
     sys.exit()
+print "The jobsize is: " , jobsize
 
 # T = 1.0 / float(jobsize) # Spaceing between points
 # if T is time/distance, 1/T is frequency/wavenumber
