@@ -12,10 +12,7 @@ from scipy.fftpack import fft, ifft
 import time
 
 start = time.time()# Time counter
-# print "This is the name of the script: ", sys.argv[0]
 print "The jobsize for the scipy-FFT is 2^", sys.argv[1]
-# print "Number of arguments: ", len(sys.argv)
-# print "The arguments are: " , str(sys.argv)
 base = 10 #base for the input jobsize
 if sys.argv[1].startswith("0x"): #if the base is hex
     base =16
