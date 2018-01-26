@@ -13,11 +13,17 @@ import time
 
 start = time.time()# Time counter
 # print "This is the name of the script: ", sys.argv[0]
-print "The jobsize for the scipy-FFT is 2^: ", sys.argv[1]
+print "The jobsize for the scipy-FFT is 2^", sys.argv[1]
 # print "Number of arguments: ", len(sys.argv)
 # print "The arguments are: " , str(sys.argv)
-# print "The arguments are: " , str(sys.argv)
-jobsize = np.power(2,sys.argv[1]) # Number of points
+base = 10 #base for the input jobsize
+if sys.argv[1].startswith("0x"): #if the base is hex
+    base =16
+try:
+    jobsize = np.power(2, int(sys.argv[1], base))
+except ValueError:
+    print "You must supply an integer"
+    sys.exit()
 
 # T = 1.0 / float(jobsize) # Spaceing between points
 # if T is time/distance, 1/T is frequency/wavenumber
@@ -27,15 +33,15 @@ a1 = np.cos(20 * x)
 a2 = np.sin(10 * x)
 a3 = np.sin(5 * x)
 a = a1 + a2 + a3 # Produces a random signal
-print "double float array 'a' datatype:", a.dtype
+# print "double float array 'a' datatype:", a.dtype
 
 # change it to a long single precision array and print datatype
 b = np.float32(a)
-print "single float array 'b' datatype:", b.dtype
+# print "single float array 'b' datatype:", b.dtype
 
 # do a scipy.fftpack.fft()
 c = sp.fftpack.fft(b)
-print "output of FFT single float complex array 'c' datatype:", c.dtype
+# print "output of FFT single float complex array 'c' datatype:", c.dtype
 
 end = time.time()
 print"Time elapsed:",(end - start) # Print out time.

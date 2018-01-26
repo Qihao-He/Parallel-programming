@@ -13,10 +13,20 @@ import time
 
 start = time.time()# Time counter
 # print "This is the name of the script: ", sys.argv[0]
-print "The jobsize for the scipy-FFT is 2^: ", sys.argv[1]
+print "The jobsize for the scipy-FFT is 2^", sys.argv[1]
 # print "Number of arguments: ", len(sys.argv)
 # print "The arguments are: " , str(sys.argv)
-jobsize = np.power(2,sys.argv[1])
+
+base = 10 #base for the input jobsize
+if sys.argv[1].startswith("0x"): #if the base is hex
+    base =16
+try:
+    jobsize = np.power(2, int(sys.argv[1], base))
+except ValueError:
+    print "You must supply an integer"
+    sys.exit()
+
+print "The jobsize is: " , jobsize
 
 # creat a long double precision array and print datatype
 a = np.linspace(1., 4., jobsize)
