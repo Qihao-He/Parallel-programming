@@ -31,7 +31,7 @@ if len(sys.argv) > 2:
     loops = int(sys.argv[2])
 print "Repeat times:", loops
 
-if (len(sys.argv) < 2 or len(sys.argv) >3 or loops < 1):
+if (len(sys.argv) < 2 or len(sys.argv) > 3 or loops < 1):
     print(Usage)
     sys.exit()
 
@@ -47,10 +47,12 @@ except ValueError:
     print(Usage)
     sys.exit()
 
-print "The jobsize is: " , jobsize
+print "The jobsize is: ", jobsize
 
-for k in range(0,loops):
+for k in range(0, loops):
     # input buffer
+    for i in range(0, N):
+        
 
     # execute the ifft
     # c = sp.fftpack.fft(b)
