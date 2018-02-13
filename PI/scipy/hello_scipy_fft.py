@@ -8,8 +8,8 @@ Author:Qihao He
 # import libraries
 import sys
 import numpy as np
-# import pylab as pl
 import scipy as sp
+import math
 from scipy.fftpack import fft, ifft
 import matplotlib.pyplot as plt
 import time
@@ -59,12 +59,19 @@ for k in range(0, loops):
     print "input buffer base_total:", base_total, base_total.dtype
 
     # execute the ifft
-    ifft = sp.fftpack.ifft(base_total)
+    inversefft = sp.fftpack.ifft(base_total)
+    print "ifft is:", inversefft, inversefft.dtype
 
     # output buffer
+    tsq = np.zeros((2, 1), dtype = np.complex64)
+    for i in range(N):
+        re = np.cos(2 * math.pi * i / N)
+        tsq[0] += pow(re, 2)
+        tsq[1] += pow(re - inversefft.real[i], 2) + pow(inversefft.imag[i], 2)
+    print "re", re, re.dtype
 
-    # rel_rms_err, time, repeat times
-    # print
+    # rel_rms_err
+    print"rel_rms_err = ", math.sqrt(tsq[1]/tsq[0])
 
 end = time.time()
 print"Time elapsed:",(end - start) # Print out time.
