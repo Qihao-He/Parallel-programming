@@ -8,6 +8,7 @@ Author:Qihao He
 # import libraries
 import sys
 import numpy as np
+import pylab as pl
 import scipy as sp
 from scipy.fftpack import fft, ifft
 import matplotlib.pyplot as plt
@@ -51,8 +52,15 @@ print "The jobsize is: ", jobsize
 
 for k in range(0, loops):
     # input buffer
+    # base_total = pl.zeros(N,2)
     for i in range(0, N):
-        
+        # x = base_re[i] + base_im[i]
+        # base_total[i] = x
+        base_re[i] = base_im[i] = 0
+    base_re[1] = base_re[N - 1] = 0.5
+    base_total = base_re + base_im
+    print "input buffer base:", base_total
+
 
     # execute the ifft
     # c = sp.fftpack.fft(b)
