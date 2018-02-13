@@ -36,42 +36,35 @@ if (len(sys.argv) < 2 or len(sys.argv) > 3 or loops < 1):
     print(Usage)
     sys.exit()
 
-N = int(sys.argv[1])<<1 #fft length
+N = 1 << int(sys.argv[1]) #fft length
 print "The fft length is:", N
 
-powerbase = 10 #base for the input jobsize
-if sys.argv[1].startswith("0x"): #if the base is hex
-    powerbase =16
-try:
-    jobsize = np.power(2, int(sys.argv[1], powerbase))
-except ValueError:
-    print(Usage)
-    sys.exit()
-
-print "The jobsize is: ", jobsize
-
 for k in range(0, loops):
+    # print "repeat order index:", k
     # input buffer
-    base_total = np.zeros((N, 1), dtype = np.complex64)
+    base_total = np.zeros((N, ), dtype = np.complex64)
     base_total.real[1] = base_total.real[N - 1] = np.float32(0.5)
     # print "base_total.real:", base_total.real
     # print "base_total.imag:", base_total.imag
-    print "input buffer base_total:", base_total, base_total.dtype
+    # print "input buffer base_total:", base_total, base_total.dtype
 
     # execute the ifft
-    inversefft = sp.fftpack.ifft(base_total)
-    print "ifft is:", inversefft, inversefft.dtype
+    inversefft = fft(base_total)
+    # print "ifft is:", inversefft, inversefft.dtype
 
     # output buffer
-    tsq = np.zeros((2, 1), dtype = np.complex64)
+    tsq = np.zeros((2, 1), dtype = np.float64)
     for i in range(N):
         re = np.cos(2 * math.pi * i / N)
+        print "re calc", re, inversefft[i]
         tsq[0] += pow(re, 2)
         tsq[1] += pow(re - inversefft.real[i], 2) + pow(inversefft.imag[i], 2)
-    print "re", re, re.dtype
+    # print "re", re, re.dtype
+    # print "tsq[0]:", tsq[0]
+    # print "tsq[1]:", tsq[1]
 
     # rel_rms_err
-    print"rel_rms_err = ", math.sqrt(tsq[1]/tsq[0])
+    print"rel_rms_err = ", math.sqrt(np.float64(tsq[1] / tsq[0]))
 
 end = time.time()
 print"Time elapsed:",(end - start) # Print out time.
