@@ -20,7 +20,7 @@ log2_N = 8 #default value to be 8
 if len(sys.argv) > 1:
     log2_N = int(sys.argv[1])
 
-log2_M = 8 #default value to be 8
+log2_M = log2_N+1 #default value to be 8
 if len(sys.argv) > 2:
     log2_M = int(sys.argv[2])
 
