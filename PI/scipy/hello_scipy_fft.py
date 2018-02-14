@@ -52,18 +52,18 @@ for k in range(0, loops):
     # print "ifft is:", inversefft, inversefft.dtype
 
     # output buffer
-    # tsq = np.zeros((2, 1), dtype = np.float64)
-    # for i in range(N):
-        # re = np.cos(2 * math.pi * i / N)
+    tsq = np.zeros((2, 1), dtype = np.float64)
+    for i in range(N):
+        re = np.cos(2 * math.pi * i / N)
         # print "re calc", re, inversefft[i]
-        # tsq[0] += pow(re, 2)
-        # tsq[1] += pow(re - inversefft.real[i], 2) + pow(inversefft.imag[i], 2)
+        tsq[0] += pow(re, 2)
+        tsq[1] += pow(re - inversefft.real[i], 2) + pow(inversefft.imag[i], 2)
     # print "re", re, re.dtype
     # print "tsq[0]:", tsq[0]
     # print "tsq[1]:", tsq[1]
 
     # rel_rms_err
-    # print"rel_rms_err = ", math.sqrt(tsq[1] / tsq[0])
+    print"rel_rms_err = ", math.sqrt(tsq[1] / tsq[0])
 
 end = time.time()
 print"Time elapsed:",(end - start) # Print out time.
