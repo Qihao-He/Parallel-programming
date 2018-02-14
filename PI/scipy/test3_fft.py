@@ -20,7 +20,7 @@ log2_N = 8 #default value to be 8
 if len(sys.argv) > 1:
     log2_N = int(sys.argv[1])
 
-log2_M = log2_N+1 #default value to be 8
+log2_M = log2_N + 1 #default value to be 8
 if len(sys.argv) > 2:
     log2_M = int(sys.argv[2])
 
@@ -36,7 +36,7 @@ print "The jobsize_end for the scipy-FFT is 2^", log2_M
 print "Repeat times:", loops
 
 # array of the FFT_length
-FFT_length = np.zeros(log2_M-log2_N, )
+FFT_length = np.zeros(log2_M - log2_N, )
 REL_RMS_ERR = np.zeros(log2_M - log2_N, )
 duration = np.zeros(log2_M - log2_N, )
 
