@@ -97,10 +97,10 @@ for k in range(loops):
         t2 = time.time()
         # output buffer and rel_rms_err
         if RMS_C == 1:
-            k = 2 * math.pi / N
+            l = 2 * math.pi / N
             for i in range(N):
                 #re = np.cos(2 * math.pi * i / N) # True solution
-                re = np.cos(k * i) # True solution
+                re = np.cos(l * i) # True solution
                 #tsq[0] += pow(re, 2)
                 tsq0 += re * re
                 a = re - y.real[i]
@@ -109,8 +109,7 @@ for k in range(loops):
             REL_RMS_ERR[k][j] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
-        # end = t3
-        print 'N',N,'Init_T:',t1 - t0,'FFT_T:',t2 - t1,'RMS_T:',t3 - t2
+        print 'log2_N',j+log2_N,'N',N,'Init_T:',t1 - t0,'FFT_T:',t2 - t1,'RMS_T:',t3 - t2
         if ELP_C == 1:
             time_elapsed[k][j] = t3 - t0
     # print"repeat %i,rel_rms_err = " %k, REL_RMS_ERR[k][:]
@@ -132,8 +131,9 @@ if FIG == 1:
         plt.xlabel('log2_FFT_length: log2_N')
         plt.ylim(1e-07, 3e-07)
         plt.yscale('symlog')
-        plt.ylabel('symetric log scale base epsilon')
+        plt.ylabel('symlog scale')
         plt.grid(True)
+
     if ELP_C == 1:
         if (RMS_C == 1 and ELP_C == 1):
             plt.subplot(212)
@@ -146,7 +146,8 @@ if FIG == 1:
         plt.yscale('log')
         plt.ylabel('log scale')
         plt.grid(True)
-    plt.savefig('test4.png')
+
+    plt.savefig('test5.png')
     plt.show()
     # plt.close(fig)
 sys.exit()
