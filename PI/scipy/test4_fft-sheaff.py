@@ -53,7 +53,8 @@ FIG = 0
 if len(sys.argv) > 6:
     FIG = int(sys.argv[6])
 
-if (len(sys.argv) < 2 or len(sys.argv) > 7 or loops < 1):
+if (not 2 <= len(sys.argv) <= 7 or loops < 1 or not 0 <= RMS_C <= 1  or
+not 0 <= ELP_C <= 1 or not 0 <= FIG <= 1):
     print(Usage)
     sys.exit()
 
@@ -75,46 +76,45 @@ for i in range(0, log2_M - log2_N):
     log2_FFT_length[i] = i + log2_N
 # print "log2_FFT_length:", log2_FFT_length
 
-x1= time.time()
-x2= time.time()
-x3= time.time()
-print x2-x1, x3-x2, x3-x1;
+# x1= time.time()
+# x2= time.time()
+# x3= time.time()
+# print x2-x1, x3-x2, x3-x1;
 for k in range(loops):
     for j in range(log2_M - log2_N):
-        start = time.time()# Time counter
+        t0 = time.time()# Time counter
 
         N = 1 << int(log2_FFT_length[j]) #fft length
         # input buffer
         x = np.zeros((N, ), dtype = np.complex64)
         x.real[1] = x.real[N - 1] = np.float32(0.5)
         # x =  np.zeros((N, ), dtype = np.float64)
-        tsq = np.zeros((2, 1), dtype = np.float64)
-        tsq0=0
-        tsq1=0
+        # tsq = np.zeros((2, 1), dtype = np.float64)
+        tsq0 = 0
+        tsq1 = 0
 
         t1 = time.time()
         # fft execute
         y = fft(x)
-
         t2 = time.time()
         # output buffer and rel_rms_err
         if RMS_C == 1:
-            k=2*math.pi/N
+            k = 2 * math.pi / N
             for i in range(N):
                 #re = np.cos(2 * math.pi * i / N) # True solution
                 re = np.cos(k * i) # True solution
                 #tsq[0] += pow(re, 2)
                 tsq0 += re*re
-                a=re - y.real[i]
-                b=y.imag[i]
-                tsq1 += a*a + b*b
+                a = re - y.real[i]
+                b = y.imag[i]
+                tsq1 += a * a + b * b
             REL_RMS_ERR[k][j] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
-        end=t3
-        print 'N',N,'Init_T:',t1-start,'FFT_T:',t2-t1,'RMS_T:',t3-t2
+        # end = t3
+        print 'N',N,'Init_T:',t1-t0,'FFT_T:',t2-t1,'RMS_T:',t3-t2
         if ELP_C == 1:
-            time_elapsed[k][j] = end -start
+            time_elapsed[k][j] = t3 -t0
     # print"repeat %i,rel_rms_err = " %k, REL_RMS_ERR[k][:]
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
@@ -143,7 +143,7 @@ if FIG == 1:
         for k in range(loops):
             plt.scatter(log2_FFT_length, time_elapsed[k, :], c ='r', marker ='+')
         # plt.autoscale(enable=True, axis='both', tight=None)
-        plt.ylim(1e-05, 1)
+        plt.ylim(1e-05, 100)
         plt.xlabel('log2_FFT_length: log2_N')
         plt.yscale('log')
         plt.ylabel('log scale')
