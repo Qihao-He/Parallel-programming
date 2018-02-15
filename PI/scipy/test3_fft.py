@@ -84,9 +84,10 @@ for k in range(loops):
 # plot figures
 plt.figure(1)
 plt.subplot(211)
-plt.title('REL_RMS_ERR')
+plt.title('REL_RMS_ERR repeat:%i' %loops)
 for k in range(loops):
     plt.scatter(FFT_length, REL_RMS_ERR[:, k], c ='b', marker ='.')
+plt.xlabel('FFT_length')
 plt.yscale('symlog')
 plt.ylabel('symetric log scale')
 plt.grid(True)
@@ -94,9 +95,10 @@ plt.grid(True)
 
 # plt.figure(2)
 plt.subplot(212)
-plt.title('time')
+plt.title('time elapsed repeat:%i' %loops)
 for k in range(loops):
     plt.scatter(FFT_length, duration[:, k], c ='r', marker ='+')
+plt.xlabel('FFT_length')
 plt.yscale('log')
 plt.ylabel('log scale')
 plt.grid(True)
