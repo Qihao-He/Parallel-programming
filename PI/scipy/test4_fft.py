@@ -133,5 +133,7 @@ if FIG == 1:
         plt.yscale('log')
         plt.ylabel('log scale')
         plt.grid(True)
+    plt.savefig('test4.png')
     plt.show()
+    # plt.close(fig)
 sys.exit()
