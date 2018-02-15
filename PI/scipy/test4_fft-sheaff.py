@@ -112,7 +112,7 @@ for k in range(loops):
 
         t3 = time.time()
         end=t3
-        print 'N',N,'Init:',t1-start,'FFT',t2-t1,'RMS',t3-t2
+        print 'N',N,'Init_T:',t1-start,'FFT_T:',t2-t1,'RMS_T:',t3-t2
         if ELP_C == 1:
             time_elapsed[k][j] = end -start
     # print"repeat %i,rel_rms_err = " %k, REL_RMS_ERR[k][:]
