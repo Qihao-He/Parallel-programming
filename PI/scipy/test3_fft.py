@@ -71,25 +71,26 @@ for k in range(loops):
         y = fft(x)
         yinv = ifft(y)
 
-        # output buffer
+        # output buffer and rel_rms_err
         for i in range(N):
             tsq[1] += pow(x[i] - yinv.real[i], 2) + pow(yinv.imag[i], 2)
-        # rel_rms_err
         REL_RMS_ERR[j][k] = math.sqrt(tsq[1] / tsq[0])
-        # print"rel_rms_err = ", REL_RMS_ERR[j]
 
         end = time.time()
         duration[j][k] = end -start
+# print"rel_rms_err = ", REL_RMS_ERR[:][:]
 
 # plot figures
 plt.figure(1)
 plt.subplot(211)
 plt.title('REL_RMS_ERR repeat:%i' %loops)
 for k in range(loops):
-    plt.scatter(FFT_length, REL_RMS_ERR[:, k], c ='b', marker ='.')
-plt.xlabel('FFT_length')
+    plt.scatter(FFT_length, REL_RMS_ERR[:, k] / sys.float_info.epsilon, c ='b', marker ='o')
+plt.autoscale(enable=True, axis='both', tight=None)
+plt.xlabel('FFT_length: log2_N')
+plt.ylim(1, 10)
 plt.yscale('symlog')
-plt.ylabel('symetric log scale')
+plt.ylabel('symetric log scale base epsilon')
 plt.grid(True)
 # axes.Axes.autoscale(enable = True, axis = 'both')
 
@@ -98,9 +99,11 @@ plt.subplot(212)
 plt.title('time elapsed repeat:%i' %loops)
 for k in range(loops):
     plt.scatter(FFT_length, duration[:, k], c ='r', marker ='+')
-plt.xlabel('FFT_length')
+plt.autoscale(enable=True, axis='both', tight=None)
+plt.xlabel('FFT_length: log2_N')
 plt.yscale('log')
 plt.ylabel('log scale')
 plt.grid(True)
 # axes.Axes.autoscale(enable = True, axis = 'both')
 plt.show()
+sys.exit()
