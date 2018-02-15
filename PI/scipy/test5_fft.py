@@ -50,8 +50,8 @@ FIG = 0
 if len(sys.argv) > 6:
     FIG = int(sys.argv[6])
 
-if (not 2 <= len(sys.argv) <= 7 or log2_M <= log2_N or loops < 1 or
-not 0 <= RMS_C <= 1  or not 0 <= ELP_C <= 1 or not 0 <= FIG <= 1):
+if (not 2 <= len(sys.argv) <= 7 or log2_M <= log2_N or loops < 1 or not
+0 <= RMS_C <= 1  or not 0 <= ELP_C <= 1 or not 0 <= FIG <= 1):
     print(Usage)
     sys.exit()
 
