@@ -2,7 +2,7 @@
 """
 Created: 2/14/2018
 desciption:
-scipy doing FFT and generate the same input array and calculate the RMS
+scipy doing FFT and calcualte Relative RMS
 Author:Qihao He
 """
 # import libraries
