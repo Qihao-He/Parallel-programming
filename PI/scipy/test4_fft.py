@@ -17,12 +17,13 @@ from matplotlib.ticker import NullFormatter  # useful for `logit` scale
 import time
 
 # Usage
-Usage = """Usage: hello_scipy_fft.py log2_N [log2_M [loops]]
+Usage = """Usage: hello_scipy_fft.py log2_N [log2_M [loops [RMS_C [ELP_C [FIG]]]]]
         log2_N = log2(FFT_length),       log2_N = 1...30
         log2_M = log2(FFT_length),       log2_M >= log2_N
         loops  = number of test repeats, loops>0,       default 1
-        REL_RMS_ERR_condition = True(1), False(0),    default 0
-        time_elapsed_condition = True(1), False(0),   defalt 0"""
+        RMS_C = True(1), False(0),    default 0
+        ELP_C = True(1), False(0),   defalt 0
+        FIG = True(1), False(0),   defalt 0"""
 
 # Default values for optional arguments
 log2_N = 8 #default value to be 8
@@ -40,26 +41,34 @@ loops = 1 #default value to be 1
 if len(sys.argv) > 3:
     loops = int(sys.argv[3])
 
-REL_RMS_ERR_condition = 0
+RMS_C = 0
 if len(sys.argv) > 4:
-    REL_RMS_ERR_condition = 1
+    RMS_C = int(sys.argv[4])
 
-time_elapsed_condition = 0
+ELP_C = 0
 if len(sys.argv) > 5:
-    time_elapsed_condition = 1
+    ELP_C = int(sys.argv[5])
 
-if (len(sys.argv) < 2 or len(sys.argv) > 6 or loops < 1):
+FIG = 0
+if len(sys.argv) > 6:
+    FIG = int(sys.argv[6])
+
+if (len(sys.argv) < 2 or len(sys.argv) > 7 or loops < 1):
     print(Usage)
     sys.exit()
+
 print "The jobsize for the scipy-FFT is 2^", log2_N
 print "The jobsize_end for the scipy-FFT is 2^", log2_M
 print "Repeat times:", loops
+print "REL_RMS_ERR", RMS_C
+print "elapsed time", ELP_C
+print "Figure", FIG
 
 # array of the log2_FFT_length
 log2_FFT_length = np.zeros(log2_M - log2_N, dtype = np.int) # 1D array
-if REL_RMS_ERR_condition == 1:
+if RMS_C == 1:
     REL_RMS_ERR = np.zeros((loops, log2_M - log2_N), dtype = np.float64) # 2D array
-if time_elapsed_condition == 1:
+if ELP_C == 1:
     time_elapsed = np.zeros((loops, log2_M - log2_N), dtype = np.float64) # 2D array
 
 for i in range(0, log2_M - log2_N):
@@ -81,7 +90,7 @@ for k in range(loops):
         y = fft(x)
 
         # output buffer and rel_rms_err
-        if REL_RMS_ERR_condition == 1:
+        if RMS_C == 1:
             for i in range(N):
                 re = np.cos(2 * math.pi * i / N) # True solution
                 tsq[0] += pow(re, 2)
@@ -89,19 +98,19 @@ for k in range(loops):
             REL_RMS_ERR[k][j] = math.sqrt(tsq[1] / tsq[0])
 
         end = time.time()
-        if time_elapsed_condition == 1:
+        if ELP_C == 1:
             time_elapsed[k][j] = end -start
     # print"repeat %i,rel_rms_err = " %k, REL_RMS_ERR[k][:]
-if REL_RMS_ERR_condition == 1:
+if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
-if time_elapsed_condition == 1:
+if ELP_C == 1:
     print"time_elapsed = ", time_elapsed
 
 # plot figures
-if (REL_RMS_ERR_condition == 1 or time_elapsed_condition == 1):
+if FIG == 1:
     plt.figure(1)
-    if REL_RMS_ERR_condition == 1:
-        if (REL_RMS_ERR_condition == 1 and time_elapsed_condition == 1):
+    if RMS_C == 1:
+        if (RMS_C == 1 and ELP_C == 1):
             plt.subplot(211)
         plt.title('REL_RMS_ERR repeat:%i' %loops)
         for k in range(loops):
@@ -112,8 +121,8 @@ if (REL_RMS_ERR_condition == 1 or time_elapsed_condition == 1):
         plt.yscale('symlog')
         plt.ylabel('symetric log scale base epsilon')
         plt.grid(True)
-    if time_elapsed_condition == 1:
-        if (REL_RMS_ERR_condition == 1 and time_elapsed_condition == 1):
+    if ELP_C == 1:
+        if (RMS_C == 1 and ELP_C == 1):
             plt.subplot(212)
         plt.title('time elapsed repeat:%i' %loops)
         for k in range(loops):
