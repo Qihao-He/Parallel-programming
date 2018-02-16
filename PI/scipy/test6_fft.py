@@ -16,7 +16,7 @@ import time
 # Usage
 Usage = """Usage: hello_scipy_fft.py log2_N [log2_M [loops [RMS_C]]]
         log2_N = log2(FFT_length),       log2_N = 1...28
-        log2_M = log2(FFT_length),       log2_M >= log2_N
+        log2_M = log2(FFT_length),       log2_M > log2_N
         loops  = number of test repeats, loops>0,       default 1
         RMS_C = True(1), False(0),    default 0"""
 
