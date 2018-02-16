@@ -37,7 +37,7 @@ RMS_C = 0
 if len(sys.argv) > 4:
     RMS_C = int(sys.argv[4])
 
-if (not 2 <= len(sys.argv) <= 6 or log2_M <= log2_N  or loops < 1 or not
+if (not 2 <= len(sys.argv) <= 5 or log2_M <= log2_N  or loops < 1 or not
 0 <= RMS_C <= 1):
     print(Usage)
     sys.exit()
