@@ -11,14 +11,15 @@ import numpy as np
 import scipy as sp
 import math
 from scipy.fftpack import ifft, fft
-import matplotlib.pyplot as plt
-import matplotlib.axes as axes
-from matplotlib.ticker import NullFormatter  # useful for `logit` scale
+# import matplotlib.pyplot as plt
+# import matplotlib.axes as axes
+# from matplotlib.ticker import NullFormatter  # useful for `logit` scale
+# from mpl_toolkits.mplot3d import Axes3D # 3d figure
 import time
 
 # Usage
 Usage = """Usage: hello_scipy_fft.py log2_N [log2_M [loops [RMS_C [ELP_C [FIG]]]]]
-        log2_N = log2(FFT_length),       log2_N = 1...30
+        log2_N = log2(FFT_length),       log2_N = 1...28
         log2_M = log2(FFT_length),       log2_M >= log2_N
         loops  = number of test repeats, loops>0,       default 1
         RMS_C = True(1), False(0),    default 0
@@ -46,11 +47,11 @@ ELP_C = 0
 if len(sys.argv) > 5:
     ELP_C = int(sys.argv[5])
 
-FIG = 0
-if len(sys.argv) > 6:
-    FIG = int(sys.argv[6])
+# FIG = 0
+# if len(sys.argv) > 6:
+#     FIG = int(sys.argv[6])
 
-if (not 2 <= len(sys.argv) <= 7 or log2_M <= log2_N or loops < 1 or not
+if (not 2 <= len(sys.argv) <= 6 or log2_M <= log2_N or loops < 1 or not
 0 <= RMS_C <= 1  or not 0 <= ELP_C <= 1 or not 0 <= FIG <= 1):
     print(Usage)
     sys.exit()
@@ -60,7 +61,7 @@ print "The jobsize_end for the scipy-FFT is 2^", log2_M
 print "Repeat times:", loops
 print "REL_RMS_ERR", RMS_C
 print "elapsed time", ELP_C
-print "Figure", FIG
+# print "Figure", FIG
 
 # array of the log2_FFT_length
 span_N = log2_M - log2_N
@@ -68,16 +69,13 @@ log2_FFT_length = np.zeros(span_N, dtype = np.int) # 1D span_Nrray
 if RMS_C == 1:
     REL_RMS_ERR = np.zeros((loops, span_N), dtype = np.float64) # 2D array
 if ELP_C == 1:
-    time_elapsed = np.zeros((loops, span_N), dtype = np.float64) # 2D array
+    time_elapsed = np.zeros((loops, span_N, 4), dtype = np.float64) # 3D array
+    # time_elapsed = np.zeros((loops, span_N), dtype = np.float64) # 2D array
 
 for i in range(0, span_N):
     log2_FFT_length[i] = i + log2_N
 # print "log2_FFT_length:", log2_FFT_length
-
-# x1= time.time()
-# x2= time.time()
-# x3= time.time()
-# print x2-x1, x3-x2, x3-x1;
+print "log2_N,","N,""Init_T:,""FFT_T:,","RMS_T:,""Total_T"
 for k in range(loops):
     for j in range(span_N):
         t0 = time.time()# Time counter
@@ -109,45 +107,59 @@ for k in range(loops):
             REL_RMS_ERR[k][j] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
-        print 'log2_N',j+log2_N,'N',N,'Init_T:',t1 - t0,'FFT_T:',t2 - t1,'RMS_T:',t3 - t2
+        #print 'log2_N',j+log2_N,'N',N,'Init_T:',t1 - t0,'FFT_T:',t2 - t1,'RMS_T:',t3 - t2, 'Total_T', t3 - t0
+        print  j+log2_N,",",N,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",  t3 - t0
+
         if ELP_C == 1:
-            time_elapsed[k][j] = t3 - t0
-    # print"repeat %i,rel_rms_err = " %k, REL_RMS_ERR[k][:]
+            time_elapsed[k][j][0] = t1 - t0
+            time_elapsed[k][j][1] = t2 - t1
+            time_elapsed[k][j][2] = t3 - t2
+            time_elapsed[k][j][3] = t3 - t0
+            # time_elapsed[k][j] = t3 - t0
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
 if ELP_C == 1:
     print"time_elapsed = ", time_elapsed
 
-# plot figures
-if FIG == 1:
-    plt.figure(1)
-    if RMS_C == 1:
-        if (RMS_C == 1 and ELP_C == 1):
-            plt.subplot(211)
-        plt.title('REL_RMS_ERR repeat:%i' %loops)
-        for k in range(loops):
-            plt.scatter(log2_FFT_length, REL_RMS_ERR[k, :], c ='b', marker ='o')
-        plt.autoscale(enable=True, axis='both', tight=None)
-        plt.xlabel('log2_FFT_length: log2_N')
-        plt.ylim(1e-07, 3e-07)
-        plt.yscale('symlog')
-        plt.ylabel('symlog scale')
-        plt.grid(True)
-
-    if ELP_C == 1:
-        if (RMS_C == 1 and ELP_C == 1):
-            plt.subplot(212)
-        plt.title('time elapsed repeat:%i' %loops)
-        for k in range(loops):
-            plt.scatter(log2_FFT_length, time_elapsed[k, :], c ='r', marker ='+')
-        # plt.autoscale(enable=True, axis='both', tight=None)
-        plt.ylim(1e-05, 100)
-        plt.xlabel('log2_FFT_length: log2_N')
-        plt.yscale('log')
-        plt.ylabel('log scale')
-        plt.grid(True)
-
-    plt.savefig('test5.png')
-    plt.show()
-    # plt.close(fig)
+# # plot figures
+# if FIG == 1:
+#     plt.figure(1)
+#     # if RMS_C == 1:
+#         # if (RMS_C == 1 and ELP_C == 1):
+#         #     plt.subplot(211)
+#         # plt.title('REL_RMS_ERR repeat:%i' %loops)
+#         # for k in range(loops):
+#         #     plt.scatter(log2_FFT_length, REL_RMS_ERR[k, :], c ='b', marker ='o')
+#         # plt.autoscale(enable=True, axis='both', tight=None)
+#         # plt.xlabel('log2_FFT_length: log2_N')
+#         # plt.ylim(1e-07, 3e-07)
+#         # plt.yscale('symlog')
+#         # plt.ylabel('symlog scale')
+#         # plt.grid(True)
+#     if ELP_C == 1:
+#         if (RMS_C == 1 and ELP_C == 1):
+#             ax = fig.add_subplot(111, projection='3d')
+#         # if (RMS_C == 1 and ELP_C == 1):
+#         #     plt.subplot(212)
+#         plt.title('time elapsed repeat:%i' %loops)
+#         for c, m, zlow, zhigh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
+#             xs = randrange(n, 23, 32)
+#             ys = randrange(n, 0, 100)
+#             zs = randrange(n, zlow, zhigh)
+#             ax.scatter(xs, ys, zs, c=c, marker=m)
+#         ax.set_xlabel('X Label')
+#         ax.set_ylabel('Y Label')
+#         ax.set_zlabel('Z Label')
+#         # for k in range(loops):
+#             # plt.scatter(log2_FFT_length, time_elapsed[k, :], c ='r', marker ='+')
+#         # plt.autoscale(enable=True, axis='both', tight=None)
+#         # plt.ylim(1e-05, 100)
+#         # plt.xlabel('log2_FFT_length: log2_N')
+#         # plt.yscale('log')
+#         # plt.ylabel('log scale')
+#         # plt.grid(True)
+#
+#     plt.savefig('test5.png')
+#     plt.show()
+#     # plt.close(fig)
 sys.exit()
