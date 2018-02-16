@@ -65,8 +65,6 @@ for k in range(loops):
         # input buffer
         x = np.zeros((N, ), dtype = np.complex64)
         x.real[1] = x.real[N - 1] = np.float32(0.5)
-        # x =  np.zeros((N, ), dtype = np.float64)
-        # tsq = np.zeros((2, 1), dtype = np.float64)
         tsq0 = 0
         tsq1 = 0
 
@@ -86,7 +84,7 @@ for k in range(loops):
             REL_RMS_ERR[k][j] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
-        print  j+log2_N,",",N,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",  t3 - t0
+        print  j + log2_N,",",N,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
         time_elapsed[k][j][0] = t1 - t0
         time_elapsed[k][j][1] = t2 - t1
         time_elapsed[k][j][2] = t3 - t2
@@ -94,4 +92,3 @@ for k in range(loops):
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
 print"time_elapsed = ", time_elapsed
-sys.exit()
