@@ -56,7 +56,7 @@ time_elapsed = np.zeros((span_N, loops, 4), dtype = np.float64) # 3D array
 
 for i in range(0, span_N):
     log2_FFT_length[i] = i + log2_N
-print "log2_N,","N,""Init_T:,""FFT_T:,","RMS_T:,""Total_T"
+print "log2_N,","N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
 for j in range(span_N):
     N = 1 << int(log2_FFT_length[j]) #fft length
