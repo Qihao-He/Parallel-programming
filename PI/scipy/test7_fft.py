@@ -92,4 +92,4 @@ for j in range(span_N):
 
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
-print"time_elapsed = ", time_elapsed
+# print"time_elapsed = ", time_elapsed
