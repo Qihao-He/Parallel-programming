@@ -45,7 +45,6 @@ if (not 2 <= len(sys.argv) <= 5 or log2_M <= log2_N  or loops < 1 or not
 span_N = log2_M - log2_N
 if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
-time_elapsed = np.zeros((span_N, loops, 4), dtype = np.float64) # 3D array
 
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
@@ -57,7 +56,6 @@ for j in range(span_N):
         # input buffer
         x = np.zeros((N, N), dtype = np.complex64)
         x.real[0,0] = np.float32(1)
-        # x.real[1] = x.real[N - 1] = np.float32(0.5)
 
         # fft execute
         t1 = time.time()
@@ -78,11 +76,7 @@ for j in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
-        time_elapsed[j][k][0] = t1 - t0
-        time_elapsed[j][k][1] = t2 - t1
-        time_elapsed[j][k][2] = t3 - t2
-        time_elapsed[j][k][3] = t3 - t0
+
 
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
-# print"time_elapsed = ", time_elapsed
