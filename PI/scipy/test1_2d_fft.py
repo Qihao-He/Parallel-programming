@@ -72,9 +72,10 @@ for j in range(span_N):
             tsq1 = 0
             tsq0 = N * N
             for i in range(N):
-                a = 1 - y.real[i]
-                b = y.imag[i]
-                tsq1 += a * a + b * b
+                for j in range(N):
+                    a = 1 - y.real[i][j]
+                    b = y.imag[i][j]
+                    tsq1 += a * a + b * b
             REL_RMS_ERR[j][k] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
