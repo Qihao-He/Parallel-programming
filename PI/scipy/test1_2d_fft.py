@@ -10,7 +10,7 @@ import sys
 import numpy as np
 import scipy as sp
 import math
-from scipy.fftpack import ifftn, fftn
+from scipy.fftpack import ifft2, fft2
 import time
 
 # Usage
@@ -49,7 +49,7 @@ if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
 time_elapsed = np.zeros((span_N, loops, 4), dtype = np.float64) # 3D array
 
-print "log2_N,","N,","Init_T,","FFT_T,","RMS_T,","Total_T"
+print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
 for j in range(span_N):
     log2_P = j + log2_N
@@ -61,27 +61,24 @@ for j in range(span_N):
         x.real[0,0] = np.float32(1)
         # x.real[1] = x.real[N - 1] = np.float32(0.5)
 
-        t1 = time.time()
         # fft execute
-        y = fft(x)
+        t1 = time.time()
+        y = fft2(x)
         t2 = time.time()
-
 
         # output buffer and rel_rms_err
         if RMS_C == 1:
             tsq0 = 0
             tsq1 = 0
-            l = 2 * math.pi / N
+            tsq0 = N * N
             for i in range(N):
-                re = np.cos(l * i) # True solution
-                tsq0 += re * re
-                a = re - y.real[i]
+                a = 1 - y.real[i]
                 b = y.imag[i]
                 tsq1 += a * a + b * b
             REL_RMS_ERR[j][k] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
-        print  j + log2_N,",",N,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
+        print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
         time_elapsed[j][k][0] = t1 - t0
         time_elapsed[j][k][1] = t2 - t1
         time_elapsed[j][k][2] = t3 - t2
