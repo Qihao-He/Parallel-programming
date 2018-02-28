@@ -54,26 +54,25 @@ if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
 time_elapsed = np.zeros((span_N, loops, 4), dtype = np.float64) # 3D array
 
-for i in range(0, span_N):
-    log2_FFT_length[i] = i + log2_N
 print "log2_N,","N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
 for j in range(span_N):
-    N = 1 << int(log2_FFT_length[j]) #fft length
+    log2_P = i + log2_N
+    N = 1 << int(log2_P) #fft length
     for k in range(loops):
         t0 = time.time()# Time counter
         # input buffer
         x = np.zeros((N, ), dtype = np.complex64)
         x.real[1] = x.real[N - 1] = np.float32(0.5)
-        tsq0 = 0
-        tsq1 = 0
 
-        t1 = time.time()
         # fft execute
+        t1 = time.time()
         y = fft(x)
         t2 = time.time()
         # output buffer and rel_rms_err
         if RMS_C == 1:
+            tsq0 = 0
+            tsq1 = 0
             l = 2 * math.pi / N
             for i in range(N):
                 re = np.cos(l * i) # True solution
