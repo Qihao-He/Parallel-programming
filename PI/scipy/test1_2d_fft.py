@@ -75,7 +75,6 @@ for j in range(span_N):
                     a = 1 - y.real[i][j]
                     b = y.imag[i][j]
                     tsq1 += a * a + b * b
-                    print tsq1
             REL_RMS_ERR[j][k] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
