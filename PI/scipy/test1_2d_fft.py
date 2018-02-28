@@ -42,7 +42,6 @@ if (not 2 <= len(sys.argv) <= 5 or log2_M <= log2_N  or loops < 1 or not
     print(Usage)
     sys.exit()
 
-# array of the log2_FFT_length
 span_N = log2_M - log2_N
 if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
