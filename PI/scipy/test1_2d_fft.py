@@ -48,8 +48,8 @@ if RMS_C == 1:
 
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
-for j in range(span_N):
-    log2_P = j + log2_N
+for l in range(span_N):
+    log2_P = l + log2_N
     N = 1 << log2_P #fft length
     for k in range(loops):
         t0 = time.time()# Time counter
@@ -72,7 +72,7 @@ for j in range(span_N):
                     a = 1 - y.real[i][j]
                     b = y.imag[i][j]
                     tsq1 += a * a + b * b
-            REL_RMS_ERR[j][k] = math.sqrt(tsq1 / tsq0)
+            REL_RMS_ERR[l][k] = math.sqrt(tsq1 / tsq0)
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
