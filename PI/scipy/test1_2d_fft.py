@@ -58,7 +58,6 @@ for l in range(span_N):
         # input buffer
         x = np.zeros((N, N), dtype = np.complex64)
         print "refcount:",sys.getrefcount(x)
-        gc.
         x.real[0,0] = np.float32(1)
 
         # fft execute
