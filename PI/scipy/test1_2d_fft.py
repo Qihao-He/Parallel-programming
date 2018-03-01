@@ -80,7 +80,7 @@ for l in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
-        print gc.get_count()
+        # print gc.get_count()
         gc.collect()
 
 if RMS_C == 1:
