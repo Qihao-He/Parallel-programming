@@ -50,7 +50,7 @@ if RMS_C == 1:
 
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 gc.enable()
-gc.isenabled()
+print gc.isenabled()
 for l in range(span_N):
     log2_P = l + log2_N
     N = 1 << log2_P #fft length
@@ -80,7 +80,7 @@ for l in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
-        gc.get_count()
+        print gc.get_count()
         gc.collect()
 
 if RMS_C == 1:
