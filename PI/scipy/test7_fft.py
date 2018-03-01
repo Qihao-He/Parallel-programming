@@ -86,5 +86,3 @@ for j in range(span_N):
 
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
-    del REL_RMS_ERR
-    gc.collect()
