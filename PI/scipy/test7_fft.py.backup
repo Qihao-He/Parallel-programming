@@ -81,7 +81,7 @@ for j in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
-        del x,y,a,b,tsq0,tsq1
+        del x,y
         gc.collect()
 
 if RMS_C == 1:
