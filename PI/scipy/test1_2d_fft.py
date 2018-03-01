@@ -55,7 +55,7 @@ for l in range(span_N):
         t0 = time.time()# Time counter
         # input buffer
         x = np.zeros((N, N), dtype = np.complex64)
-        print "refcount:%i",sys.getrefcount(x)
+        print "refcount:",sys.getrefcount(x)
         x.real[0,0] = np.float32(1)
 
         # fft execute
