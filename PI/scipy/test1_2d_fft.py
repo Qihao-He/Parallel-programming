@@ -49,7 +49,7 @@ if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
 
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
-
+gc.enable
 for l in range(span_N):
     log2_P = l + log2_N
     N = 1 << log2_P #fft length
