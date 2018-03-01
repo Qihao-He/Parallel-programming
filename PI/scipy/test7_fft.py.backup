@@ -42,6 +42,11 @@ if (not 2 <= len(sys.argv) <= 5 or log2_M <= log2_N  or loops < 1 or not
     print(Usage)
     sys.exit()
 
+gc.enable()
+if not gc.isenabled():
+    print"garbage collect not enabled."
+    sys.exit()
+
 span_N = log2_M - log2_N
 if RMS_C == 1:
     REL_RMS_ERR = np.zeros((span_N, loops), dtype = np.float64) # 2D array
@@ -76,6 +81,10 @@ for j in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
+        del x,y,a,b,tsq0,tsq1
+        gc.collect()
 
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
+    del REL_RMS_ERR
+    gc.collect()
