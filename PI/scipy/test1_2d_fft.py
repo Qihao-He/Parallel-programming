@@ -50,7 +50,9 @@ if RMS_C == 1:
 
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 gc.enable()
-print gc.isenabled()
+if not gc.isenabled():
+    print"garbage collect not enabled."
+    sys.exit()
 for l in range(span_N):
     log2_P = l + log2_N
     N = 1 << log2_P #fft length
