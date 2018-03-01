@@ -80,7 +80,9 @@ for l in range(span_N):
                     a = 1 - y.real[i][j]
                     b = y.imag[i][j]
                     tsq1 += a * a + b * b
+                    del a,b
             REL_RMS_ERR[l][k] = math.sqrt(tsq1 / tsq0)
+            del tsq0,tsq1
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
