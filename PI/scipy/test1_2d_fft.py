@@ -7,11 +7,13 @@ Author:Qihao He
 """
 # import libraries
 import sys
+import gc
 import numpy as np
 import scipy as sp
 import math
 from scipy.fftpack import ifft2, fft2
 import time
+
 
 # Usage
 Usage = """Usage: hello_scipy_fft.py log2_N [log2_M [loops [RMS_C]]]
@@ -56,6 +58,7 @@ for l in range(span_N):
         # input buffer
         x = np.zeros((N, N), dtype = np.complex64)
         print "refcount:",sys.getrefcount(x)
+        gc.
         x.real[0,0] = np.float32(1)
 
         # fft execute
@@ -77,7 +80,7 @@ for l in range(span_N):
 
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
-
+        gc.collect()
 
 if RMS_C == 1:
     print"rel_rms_err = ", REL_RMS_ERR
