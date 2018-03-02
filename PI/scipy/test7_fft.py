@@ -62,6 +62,7 @@ for j in range(span_N):
         x = np.zeros((N, ), dtype = np.complex64)
         x.real[1] = x.real[N - 1] = np.float32(0.5)
 
+        time.sleep(1/1000000.0)
         # fft execute
         t1 = time.time()
         y = fft(x)
@@ -82,6 +83,7 @@ for j in range(span_N):
         t3 = time.time()
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
         del x,y
+        time.sleep(1/1000000.0)
         gc.collect()
 
 if RMS_C == 1:

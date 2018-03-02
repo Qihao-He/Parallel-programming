@@ -65,6 +65,7 @@ for l in range(span_N):
         # print "refcount:",sys.getrefcount(x)
         x.real[0,0] = np.float32(1)
 
+        time.sleep(1/1000000.0)
         # fft execute
         t1 = time.time()
         y = fft2(x)
@@ -86,6 +87,7 @@ for l in range(span_N):
         print  log2_P,",",t1 - t0,",",t2 - t1,",",t3 - t2,",",t3 - t0
         # print gc.get_count()
         del x,y
+        time.sleep(1/1000000.0)
         gc.collect()
 
 if RMS_C == 1:
