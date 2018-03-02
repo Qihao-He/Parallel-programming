@@ -55,7 +55,7 @@ if RMS_C == 1:
 print "log2_N,","Init_T,","FFT_T,","RMS_T,","Total_T"
 
 for j in range(span_N):
-    log2_P = i + log2_N
+    log2_P = j + log2_N
     N = 1 << int(log2_P) #fft length
     for k in range(loops):
         t0 = time.time()# Time counter
