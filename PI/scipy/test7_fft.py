@@ -7,6 +7,7 @@ Author:Qihao He
 """
 # import libraries
 import sys
+import gc
 import numpy as np
 import scipy as sp
 import math
